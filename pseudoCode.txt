@@ -42,3 +42,11 @@ while(count_of_dirty_cells! = 0)
 }
 
 # print Total steps to clean entire grid.
+
+# Modules and distribution
+1. modify the maze - take number of dirt locations as input and creats the environment. - T and A
+2. create objects.json file automatically from the maze - T and A
+3. read dirt_locations from objects.json - N and E
+4. findPolicyAndValues function - N and E
+5. getCurrentLocation() helper method - ALL
+6. execute_action() helper method - ALL
