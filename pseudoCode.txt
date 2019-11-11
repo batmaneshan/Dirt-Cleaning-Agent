@@ -1,0 +1,44 @@
+# Points to note:
+1. reward for cleaning a dirty cell
+reward = 25 
+
+2. only 5 possible actions in each cell.
+3. all actions are stochastic
+
+
+dirt_locations - # read objects.json to get the location of dirty cell
+
+count_of_dirty_cells - # compute it from objects.json
+total_steps_to_clean_entire_grid = 0
+
+# find policy and values for each state 
+def findPolicyAndValues(dirtLocations, rewardForCleaningEachDirt, initial_V_values):
+	# policy/value iteration
+	...	
+	return policy,V	
+
+while(count_of_dirty_cells! = 0)
+{
+	get bot_current_location from helper function - similar to the one in HW3
+
+	if( bot_current_location in dirt_locations ) 
+	{
+		isSuccess = execute_action("clean")
+		if(isSuccess == True)
+		{
+			count_of_dirty_cells--;
+			remove current_location from dirt_locations list
+			# update policy and V values
+			policy,V = findPolicyAndValues(dirt_locations, reward, V);
+		}
+	}
+	else
+	{
+		action_to_be_executed = policy(bot_current_state)
+		isSuccess = execute_action(action_to_be_executed)
+	}
+
+	total_steps_to_clean_entire_grid++;
+}
+
+# print Total steps to clean entire grid.
