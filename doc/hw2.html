@@ -1,0 +1,1107 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Homework 2 - Programming Section &mdash; CSE 571 - HW 2  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to CSE 571 Fall 2019 - HW2!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CSE 571 - HW 2
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Homework 2 - Programming Section</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#plagiarism-warning">Plagiarism Warning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tasks">Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grading-policy">Grading Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#instructions">Instructions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-planning-folder">Setting up <strong>Planning</strong> Folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-setting">Environment Setting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#moving-turtlebot">Moving TurtleBot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#completing-problem-pddl">Completing problem.pddl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#completing-domain-pddl">Completing domain.pddl</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#predicates">Predicates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#actions">Actions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#checking-correctness-of-pddl-files">Checking correctness of pddl files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fast-downward">Fast Downward</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fast-forward">Fast Forward</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#completing-refinement-py">Completing refinement.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#generate-the-plan">Generate the plan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parse-the-plan">Parse the plan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#refine-the-plan">Refine the plan</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pick">Pick</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#place">Place</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#move">Move</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#execute-the-plan">Execute the plan</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Pick</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Place</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Move</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tips-and-suggestions">Tips and Suggestions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pddl-resources">PDDL Resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#api">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#class-state">class State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">class Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-refine">class Refine</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CSE 571 - HW 2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Homework 2 - Programming Section</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="homework-2-programming-section">
+<h1>Homework 2 - Programming Section<a class="headerlink" href="#homework-2-programming-section" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to Programming section of Homework 2 for CSE 571 - Fall 2019.</p>
+<p>This section will test your understanding of Planning as covered in the class.</p>
+<p>Homework is due at 11:59 PM on October 17, 2019. Please plan your submission early to avoid last moment hiccups.</p>
+<div class="section" id="plagiarism-warning">
+<h2>Plagiarism Warning<a class="headerlink" href="#plagiarism-warning" title="Permalink to this headline">¶</a></h2>
+<p>Powerful copy-detection systems will be used as part of grading, so please <strong>DO NOT</strong> submit/use any piece of code that is not <strong>your own</strong> work. These systems can easily catch instances where users change variable names, etc. from copied code.</p>
+<p>If you use any helper code, do not forget to cite it using comments inside the code.</p>
+<p>If you are stuck at any point, you can approach the professor or TA for help.</p>
+<p>As mentioned in class, please remember the academic integrity policy of this course.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/plagiarism.png"><img alt="Academic Integrity Policy" src="_images/plagiarism.png" style="width: 792.0px; height: 326.5px;" /></a>
+</div>
+</div>
+<div class="section" id="tasks">
+<h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">[10 points] Complete the problem.pddl by writing the correct problem independent goal.</p>
+</li>
+<li><p class="first">[25 points] Complete the domain.pddl by completing the pick, place, and move actions.</p>
+</li>
+<li><p class="first">[25 points] Convert the pick, place, and move actions so that they can be run on the TurtleBot.</p>
+<blockquote>
+<div><p>Please refer to <a class="reference external" href="#instructions">instructions section</a> to understand what these tasks mean and how to setup the environment. It also includes a number of tips that will significantly simplify your task. Follow the instructions strictly to ensure that your assignment can be graded by the auto-grader. <strong>Custom grading requests will not be entertained</strong>.</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="grading-policy">
+<h2>Grading Policy<a class="headerlink" href="#grading-policy" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>If the submission is late by 24 hours, you are entitled to 30% to the score you’ll get for the homework.</li>
+<li>No points will be given if the assignment is submitted later than 24 hours.</li>
+<li>In order to get full points for part 1, your goal should be independent of the number of objects in the environment. Submit the goal alongwith your pdf submission.</li>
+<li>In order to get full points for part 2, all the action descriptions should be correct. No partial points will be awarded if not all actions are right. We will test part 2 and part 3 with the goal generated by auto-grader script.</li>
+<li>In order to get full points for part 3, your final submitted code should run without any input or configuration from the TA. If any changes are required to get your submitted code to run, points will be deducted in a manner proportional to the number of changes needed. If you follow the instructions your code will run without any inputs from the TA.</li>
+<li>Homework will be graded on Ubuntu 16.04 machines setup with ROS Kinetic, and Python 2.7. Use the setup from HW0 to ensure your code runs as intended with this configuration.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="instructions">
+<h1>Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setting-up-planning-folder">
+<h2>Setting up <strong>Planning</strong> Folder<a class="headerlink" href="#setting-up-planning-folder" title="Permalink to this headline">¶</a></h2>
+<p>We assume that you have completed the setup as instructed in Homework 0.
+Refer to <a class="reference external" href="https://aair-lab.github.io/teaching/571_f19_hw/hw0.html">Homework 0 Webpage</a> for details.</p>
+<ol class="arabic">
+<li><p class="first">Clone the “planning” folder from Github to ~/catkin_ws/src/</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/catkin_ws/src <span class="o">&amp;&amp;</span> git clone https://github.com/AAIR-lab/planning.git
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Change permission of all scripts in planning folder to make them executable.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod u+x ~/catkin_ws/src/planning/scripts/*.py
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Execute the env_setup.sh script. It will copy the necessaty files in respective folders. This script will fail if you don’t have turtlebot folder in ~/catkin_ws/src. Refer Homework 0 setup if this is the case.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod u+x ~/catkin_ws/src/planning/env_setup.sh <span class="o">&amp;&amp;</span> ~/catkin_ws/src/planning/env_setup.sh
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="environment-setting">
+<h2>Environment Setting<a class="headerlink" href="#environment-setting" title="Permalink to this headline">¶</a></h2>
+<p>Refer the image below to see how a sample maze environment looks like. The turtleBot has a basket on top of it. There are books of 2 different sizes (large and small) and 2 different subjects lying around on the maze. There are 4 destination bins, 2 of each subject. Each subject has bins of 2 sizes, large and small. Each book has a designated bin, depending on its size and subject.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="_images/books_n_bins.png"><img alt="A sample maze" src="_images/books_n_bins.png" style="width: 737.6px; height: 419.6px;" /></a>
+</div>
+<p>Some of the terms that we use throughout the assignment are:</p>
+<ol class="arabic simple">
+<li>Book and Bin Size: There are two sizes for the books and bins. Large and Small.</li>
+<li>Number of Subjects: This is the number of distinct subjects. This number can vary between 1 and 10 inclusive. For each of the subject, two different bins will be generated; large and small.</li>
+<li>Number of Books: This is the number of books you have of each subject in each size. This number can vary between 1 and 5 inclusive. So actual number of books in the whole environment is number of books * number of subjects * 2.</li>
+<li>Load Location: Every book and bin has 2 load locations. For a book it is the set of locations from where it can be picked by the TurtleBot. For a bin it is the set of locations from where the TurtleBot can place the books into this bin.</li>
+</ol>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>We gave multiple load locations because it is possible that one of the book’s load location is obstructed by another book. Same can also happen for a bin. In such a case the TurtleBot can go to the another load location and perform the pick or place operation.</p>
+<p class="last"><strong>It is possible that both the load locations of a book or bin are obstructed.</strong> In such a case no solution exists, and you have to regenerate the new maze by restarting server.py. Use less number of books initially to avoid this situation.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">Grid Size: Grid Size is not used explicitly in this homework. It is dependent on the number of books. For this homework, Grid Size = 6 * number of subjects.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Similar to the previous homework, the actual grid size used for navigation is different from what is seen in Gazebo environment. Each of the square seen in Gazebo is divided into 4 equal squares.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id9">
+<img alt="_images/grid.png" src="_images/grid.png" />
+<p class="caption"><span class="caption-text">Fig 1. Grid visible in Gazebo</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id10">
+<img alt="_images/grid_actual.png" src="_images/grid_actual.png" />
+<p class="caption"><span class="caption-text">Fig 2. Actual navigation grid</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="last">Hence, if you have to go from point A to B in Gazebo environment using ‘MoveF’ action, you will have to give ‘MoveF’ command twice. If you give the ‘MoveF’ command once, the TurtleBot will stop at T.</p>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="moving-turtlebot">
+<h2>Moving TurtleBot<a class="headerlink" href="#moving-turtlebot" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">On a terminal, run roscore.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roscore
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">In a new terminal session, run the server file (located at ~/catkin_ws/src/planning/scripts/server.py). Use the arguments to provide the number of subjects, number of books of each subject, and random seed.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosrun planning server.py
+</pre></div>
+</div>
+<p>Use – help option to see how to pass arguments to the server.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rosrun planning server.py --help
+usage: server.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-sub <span class="m">5</span><span class="o">]</span> <span class="o">[</span>-b <span class="m">5</span><span class="o">]</span> <span class="o">[</span>-s <span class="m">32</span><span class="o">]</span>
+
+optional arguments:
+  -h, --help  show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  -sub <span class="m">5</span>      <span class="k">for</span> providing no. of subjects
+  -b <span class="m">5</span>        <span class="k">for</span> providing no. of books <span class="k">for</span> each subject
+  -s <span class="m">32</span>       <span class="k">for</span> providing random seed
+</pre></div>
+</div>
+<p>Running server.py will generate:
+#. A random environment with number of books and number of subjects mentioned in parameters of the server.py.
+#. A partial PDDL problem file ~/catkin_ws/src/planning/scripts/problem.pddl populated with initial state and objects.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Launch the maze in a new terminal.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch planning maze.launch
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Run the move_tbot3.py file in a new terminal. It enables the movement of TurtleBot3.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosrun planning move_tbot3.py
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Complete the problem.pddl and domain.pddl to proceed further. This is explained in next few sections.</p>
+</li>
+<li><p class="first">Complete refinement.py. This is explained in next few sections.</p>
+</li>
+<li><p class="first">Run refinement.py to generate the plan.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosrun planning refinement.py -step <span class="m">1</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Run refinement.py to run the TurtleBot.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosrun planning refinement.py -step <span class="m">2</span>
+</pre></div>
+</div>
+<p>Run refinement.py with -h parameter to see it’s usage.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rosrun planning refinement.py -h
+usage: refinement.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-step <span class="m">1</span><span class="o">]</span> <span class="o">[</span>-planner FF<span class="o">]</span> <span class="o">[</span>-params<span class="o">]</span>
+
+optional arguments:
+  -h, --help   show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  -step <span class="m">1</span>      Step to execute:
+               <span class="m">1</span>. Generate plan
+               <span class="m">2</span>. Perform downward refinement and execute
+  -planner FF  which planner to use <span class="o">{</span>FF, FD<span class="o">}</span>
+  -params      parameters to the planner
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="completing-problem-pddl">
+<h2>Completing problem.pddl<a class="headerlink" href="#completing-problem-pddl" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Run server.py as mentioned in the previous section to generate the partially complete problem.pddl.</p>
+</li>
+<li><p class="first">problem.pddl is located at ~/catkin_ws/src/planning/</p>
+</li>
+<li><p class="first">Objects and Initial state are populated by server.py.</p>
+</li>
+<li><p class="first">Write a general Goal statement using forall and exists quantifiers. It should not depend on the number of books, number of bins, etc.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>Hint</strong>:       Goal should be that for all the books, there should be a bin with the same subject and size such that the location of book and respective bin is same.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Save this goal in another file, because everytime you run server.py, a new problem.pddl file will be generated where you have to manually copy this goal.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Submit this goal alongwith the pdf file that you’ll submit for Theory section of the homework. We will test the remaining sections of the programming section using our own goal.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="completing-domain-pddl">
+<h2>Completing domain.pddl<a class="headerlink" href="#completing-domain-pddl" title="Permalink to this headline">¶</a></h2>
+<p>The domain file provided to you (located at ~/catkin_ws/src/planning/) looks like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>define <span class="o">(</span>domain bookWorld<span class="o">)</span>
+
+    <span class="o">(</span>:requirements :equality :typing :strips<span class="o">)</span>
+
+    <span class="o">(</span>:types robot book bin location subject size<span class="o">)</span>
+
+    <span class="o">(</span>:predicates
+        <span class="o">(</span>Book_At ?a - book ?b - location<span class="o">)</span>
+        <span class="o">(</span>Bin_At ?a - bin ?b - location<span class="o">)</span>
+        <span class="o">(</span>Book_Subject ?a - book ?b - subject<span class="o">)</span>
+        <span class="o">(</span>Book_Size ?a - book ?b - size<span class="o">)</span>
+        <span class="o">(</span>Bin_Subject ?a - bin ?b - subject<span class="o">)</span>
+        <span class="o">(</span>Bin_Size ?a - bin ?b - size<span class="o">)</span>
+        <span class="o">(</span>Robot_At ?a - robot ?b - location<span class="o">)</span>
+        <span class="o">(</span>Empty_Basket ?a - robot<span class="o">)</span>
+        <span class="o">(</span>In_Basket ?b - book<span class="o">)</span>
+    <span class="o">)</span>
+
+    <span class="o">(</span>:action pick
+        :parameters <span class="o">(</span> ADD ACTION PARAMETERS HERE <span class="o">)</span>
+        :precondition <span class="o">(</span> ADD PRECONDITION PREDICATES HERE <span class="o">)</span>
+        :effect <span class="o">(</span>  ADD EFFECT PREDICATES HERE <span class="o">)</span>
+    <span class="o">)</span>
+
+    <span class="o">(</span>:action place
+        :parameters <span class="o">(</span> ADD ACTION PARAMETERS HERE <span class="o">)</span>
+        :precondition <span class="o">(</span> ADD PRECONDITION PREDICATES HERE <span class="o">)</span>
+        :effect <span class="o">(</span>  ADD EFFECT PREDICATES HERE <span class="o">)</span>
+    <span class="o">)</span>
+    <span class="o">(</span>:action move
+        :parameters <span class="o">(</span> ADD ACTION PARAMETERS HERE <span class="o">)</span>
+        :precondition <span class="o">(</span> ADD PRECONDITION PREDICATES HERE <span class="o">)</span>
+        :effect <span class="o">(</span>  ADD EFFECT PREDICATES HERE <span class="o">)</span>
+    <span class="o">)</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+<div class="section" id="predicates">
+<h3>Predicates<a class="headerlink" href="#predicates" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Predicate</strong></th>
+<th class="head">Is true if</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>(Book_At ?a - book ?b - location)</strong></td>
+<td>book ?a is at location ?b</td>
+</tr>
+<tr class="row-odd"><td><strong>(Bin_At ?a - bin ?b - location)</strong></td>
+<td>bin ?a is at location ?b</td>
+</tr>
+<tr class="row-even"><td><strong>(Book_Subject ?a - book ?b - subject)</strong>:</td>
+<td>subject of the book ?a is ?b</td>
+</tr>
+<tr class="row-odd"><td><strong>(Book_Size ?a - book ?b - size)</strong>:</td>
+<td>size of the book ?a is ?b</td>
+</tr>
+<tr class="row-even"><td><strong>(Bin_Subject ?a - bin ?b - subject)</strong>:</td>
+<td>bin ?a stores books of subject ?b</td>
+</tr>
+<tr class="row-odd"><td><strong>(Bin_Size ?a - bin ?b - size)</strong>:</td>
+<td>bin ?a stores books of size ?b</td>
+</tr>
+<tr class="row-even"><td><strong>(Robot_At ?a - robot ?b - location)</strong>:</td>
+<td>robot ?a is at location ?b</td>
+</tr>
+<tr class="row-odd"><td><strong>(Empty_Basket ?a - robot)</strong>:</td>
+<td>the basket on top of ?a is empty</td>
+</tr>
+<tr class="row-even"><td><strong>(In_Basket ?b - book)</strong>:</td>
+<td>the book ?b is in the basket</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="actions">
+<h3>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><strong>Pick</strong>: This action picks the book from floor and puts it in the basket on the Turtlebot3.</li>
+<li><strong>Place</strong>: This action places the book in the bin from the basket on the Turtlebot3.</li>
+<li><strong>Move</strong>: This action is used to change the location of the Turtlebot3.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="checking-correctness-of-pddl-files">
+<h2>Checking correctness of pddl files<a class="headerlink" href="#checking-correctness-of-pddl-files" title="Permalink to this headline">¶</a></h2>
+<p>We have provided 2 planners for you to use in planning. Fast Downward (FD) and Fast Forward (FF). These are located at ~/catkin_ws/src/planning/planners/</p>
+<p>You can use any one of these to generate the plans and check manually for a smaller number of subjects and books if the plan looks valid. Please find below how to run each of the planner.</p>
+<div class="section" id="fast-downward">
+<h3>Fast Downward<a class="headerlink" href="#fast-downward" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Change permission of the executable.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/catkin_ws/src/planning <span class="o">&amp;&amp;</span> chmod u+x ./planners/FD/fast-downward.py
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Run FF Planner. Ensure that you have updated goal in problem.pddl before this command.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./planners/FD/fast-downward.py domain.pddl problem.pddl --search <span class="s2">&quot;lazy_greedy([ff()], preferred=[ff()])&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">You can change the parameters given to FD. For its usage simply run fast-downward.py without any parameters. To get complete list of parameters pass -h as an argument.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./planners/FD/fast-downward.py
+usage: fast-downward.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--show-aliases<span class="o">]</span> <span class="o">[</span>--run-all<span class="o">]</span> <span class="o">[</span>--translate<span class="o">]</span>
+                        <span class="o">[</span>--search<span class="o">]</span>
+                        <span class="o">[</span>--translate-time-limit TRANSLATE_TIME_LIMIT<span class="o">]</span>
+                        <span class="o">[</span>--translate-memory-limit TRANSLATE_MEMORY_LIMIT<span class="o">]</span>
+                        <span class="o">[</span>--search-time-limit SEARCH_TIME_LIMIT<span class="o">]</span>
+                        <span class="o">[</span>--search-memory-limit SEARCH_MEMORY_LIMIT<span class="o">]</span>
+                        <span class="o">[</span>--validate-time-limit VALIDATE_TIME_LIMIT<span class="o">]</span>
+                        <span class="o">[</span>--validate-memory-limit VALIDATE_MEMORY_LIMIT<span class="o">]</span>
+                        <span class="o">[</span>--overall-time-limit OVERALL_TIME_LIMIT<span class="o">]</span>
+                        <span class="o">[</span>--overall-memory-limit OVERALL_MEMORY_LIMIT<span class="o">]</span>
+                        <span class="o">[</span>--alias ALIAS<span class="o">]</span> <span class="o">[</span>--build BUILD<span class="o">]</span> <span class="o">[</span>--debug<span class="o">]</span> <span class="o">[</span>--validate<span class="o">]</span>
+                        <span class="o">[</span>--log-level <span class="o">{</span>debug,info,warning<span class="o">}]</span> <span class="o">[</span>--plan-file FILE<span class="o">]</span>
+                        <span class="o">[</span>--sas-file FILE<span class="o">]</span> <span class="o">[</span>--keep-sas-file<span class="o">]</span> <span class="o">[</span>--portfolio FILE<span class="o">]</span>
+                        <span class="o">[</span>--portfolio-bound VALUE<span class="o">]</span> <span class="o">[</span>--portfolio-single-plan<span class="o">]</span>
+                        <span class="o">[</span>--cleanup<span class="o">]</span>
+                        INPUT_FILE1 <span class="o">[</span>INPUT_FILE2<span class="o">]</span> <span class="o">[</span>COMPONENT_OPTION ...<span class="o">]</span>
+fast-downward.py: error: translator needs one or two input files
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">If your domain and problem files are <strong>syntactically correct</strong>, you will get a plan that can also be found in <strong>sas_plan</strong> file.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="fast-forward">
+<h3>Fast Forward<a class="headerlink" href="#fast-forward" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Change permission of the executable.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/catkin_ws/src/planning <span class="o">&amp;&amp;</span> chmod u+x ./planners/FF/ff
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Run FF Planner. Ensure that you have updated goal in problem.pddl before this command.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./planners/FF/ff -o domain.pddl -f problem.pddl
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">You can change the parameters given to FF. For its usage simply run ff without any parameters.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./planners/FF/ff
+
+usage of ff:
+
+OPTIONS   DESCRIPTIONS
+
+-p &lt;str&gt;    path <span class="k">for</span> operator and fact file
+-o &lt;str&gt;    operator file name
+-f &lt;str&gt;    fact file name
+
+-i &lt;num&gt;    run-time information level<span class="o">(</span> preset: <span class="m">1</span> <span class="o">)</span>
+      <span class="m">0</span>     only <span class="nb">times</span>
+      <span class="m">1</span>     problem name, planning process infos
+    <span class="m">101</span>     parsed problem data
+    <span class="m">102</span>     cleaned up ADL problem
+    <span class="m">103</span>     collected string tables
+    <span class="m">104</span>     encoded domain
+    <span class="m">105</span>     predicates inertia info
+    <span class="m">106</span>     splitted initial state
+    <span class="m">107</span>     domain with Wff s normalized
+    <span class="m">108</span>     domain with NOT conds translated
+    <span class="m">109</span>     splitted domain
+    <span class="m">110</span>     cleaned up easy domain
+    <span class="m">111</span>     unaries encoded easy domain
+    <span class="m">112</span>     effects multiplied easy domain
+    <span class="m">113</span>     inertia removed easy domain
+    <span class="m">114</span>     easy action templates
+    <span class="m">115</span>     cleaned up hard domain representation
+    <span class="m">116</span>     mixed hard domain representation
+    <span class="m">117</span>     final hard domain representation
+    <span class="m">118</span>     reachability analysis results
+    <span class="m">119</span>     facts selected as relevant
+    <span class="m">120</span>     final domain and problem representations
+    <span class="m">121</span>     connectivity graph
+    <span class="m">122</span>     fixpoint result on each evaluated state
+    <span class="m">123</span>     1P extracted on each evaluated state
+    <span class="m">124</span>     H <span class="nb">set</span> collected <span class="k">for</span> each evaluated state
+    <span class="m">125</span>     False sets of goals &lt;GAM&gt;
+    <span class="m">126</span>     detected ordering constraints leq_h &lt;GAM&gt;
+    <span class="m">127</span>     the Goal Agenda &lt;GAM&gt;
+
+-d &lt;num&gt;    switch on debugging
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">If your domain and problem files are <strong>syntactically correct</strong>, you will get a plan that can also be found in <strong>problem.pddl.soln</strong> file.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use the FF provided by us. This will generate plan file (problem.pddl.soln) similar to the one produced by Fast Downward. So you need not worry about writing two different parsers to parse the plan.</p>
+</div>
+<p>You can play around with any of these two planners. That’s why we have provided the source code of them alongwith the executables.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">You have to manually check if the plan returned by these planners can be executed in the environment or not. Getting a plan only guarantees that your syntax is correct.</p>
+</div>
+</div>
+</div>
+<div class="section" id="completing-refinement-py">
+<h2>Completing refinement.py<a class="headerlink" href="#completing-refinement-py" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="generate-the-plan">
+<h3>Generate the plan<a class="headerlink" href="#generate-the-plan" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">We have automated the plan generation process once you have completed the domain.pddl and problem.pddl.</p>
+</li>
+<li><p class="first">Run refinement.py with -h parameter to see it’s usage.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rosrun planning refinement.py -h
+usage: refinement.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-step <span class="m">1</span><span class="o">]</span> <span class="o">[</span>-planner FF<span class="o">]</span> <span class="o">[</span>-params<span class="o">]</span>
+
+optional arguments:
+  -h, --help   show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  -step <span class="m">1</span>      Step to execute:
+               <span class="m">1</span>. Generate plan
+               <span class="m">2</span>. Perform downward refinement and execute
+  -planner FF  which planner to use <span class="o">{</span>FF, FD<span class="o">}</span>
+  -params      parameters to the planner
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p>Assume that you use FD, then to generate the plan your command will be:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosrun planning refinement.py -step <span class="m">1</span> -planner FD -params <span class="s2">&quot;--search \&quot;astar(blind())\&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If your parameters have any ” symbols, then delimit them using backward-slash.</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="parse-the-plan">
+<h3>Parse the plan<a class="headerlink" href="#parse-the-plan" title="Permalink to this headline">¶</a></h3>
+<p>For each of the move action, get the goal/target location. Location of each object is stored in objects.json located at ~/catkin_ws/src/planning/. Do this parsing before starting the refining of the plan or while refining the plan itself.</p>
+<p>You can load the json file to python dictionary using the following code:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="o">&lt;</span><span class="n">path_to_json_file</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+                <span class="n">objects</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">,</span> <span class="n">parse_float</span><span class="o">=</span><span class="n">Decimal</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">KeyError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+                <span class="k">print</span> <span class="s2">&quot;JSON error&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The following is a sample entry from the dictionary into which the json file is loaded.</p>
+<blockquote>
+<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>{&quot;books&quot;:
+        {&quot;book_1&quot;: {&quot;load_loc&quot;: [[0.0, 2.5], [0.5, 2.5]],
+                &quot;loc&quot;: [0.2650690844017911, 2.5],
+                &quot;subject&quot;: &quot;Operating Systems Architecture&quot;,
+                &quot;size&quot;: &quot;small&quot;
+                },
+         &quot;book_2&quot;: {&quot;load_loc&quot;: [[0.5, 0.0], [0.5, 0.5]],
+                &quot;loc&quot;: [0.5, 0.23379570319872006],
+                &quot;subject&quot;: &quot;Operating Systems Architecture&quot;,
+                &quot;size&quot;: &quot;large&quot;
+                }
+        }
+}
+</pre></div>
+</div>
+</div></blockquote>
+<p>The key “load_loc” in this dictionary will give you the load location for that object.</p>
+</div>
+<div class="section" id="refine-the-plan">
+<h3>Refine the plan<a class="headerlink" href="#refine-the-plan" title="Permalink to this headline">¶</a></h3>
+<p>You have to convert the actions pick, place, and move into the action/action sequence that can be executed on TurtleBot. This is needed because when your pddl says move TurtleBot from its initial location to the location of Book 1, the TurtleBot does not know how to go from the initial location to the location of Book 1, all it understands is the actions that it can execute, in this case MoveF, MoveB, TurnCW, or TurnCCW. So you have to convert this move command given by the planner’s output plan into a set of action sequences like [“MoveF”, “MoveF”, “TurnCCW”, “MoveF”], etc. so that TurtleBot can execute it. This is called downward refinement, converting high level actions into low level actions understood by the agent (TurtleBot in this case). You can refer Section 11.2 of the Textbook to learn more about this.</p>
+<p>Build the downward refinement functionality into <a class="reference external" href="#refinement.Refine.refine_plan">refine_plan</a> method of class Refine in refinement.py. Find below the tips and pointers on how to refine each of the method:</p>
+<div class="section" id="pick">
+<h4>Pick<a class="headerlink" href="#pick" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Refining pick action is not needed as TurtleBot does not have an arm. You can assume that when the TurtleBot is at load location of a book it can magically load the book into its basket if it executes the pick action.</li>
+<li>Convert the pick action to the proper tuple and append it to Refine.actions so that it can be executed later.</li>
+</ol>
+</div>
+<div class="section" id="place">
+<h4>Place<a class="headerlink" href="#place" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Refining place action is not needed as TurtleBot does not have an arm. You can assume that when the TurtleBot is at load location of a bin it can magically unload the book into the bin if it executes the place action.</li>
+<li>Convert the pick action to the proper tuple and append it to Refine.actions so that it can be executed later.</li>
+</ol>
+</div>
+<div class="section" id="move">
+<h4>Move<a class="headerlink" href="#move" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Generate the action sequence for each of the move method. To accomplish this, call <a class="reference external" href="#refinement.Refine.get_path">get_path</a> method from your current state. If there is no path returned, then no path exists from the current state to the goal state, i.e. refinement has failed. If refinement fails, check visually on Gazebo if actually no path exists to reach that particular book or bin.</li>
+<li>Convert the pick action to the proper tuple and append it to Refine.actions so that it can be executed later.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="execute-the-plan">
+<h3>Execute the plan<a class="headerlink" href="#execute-the-plan" title="Permalink to this headline">¶</a></h3>
+<p>Execute the refined actions in <a class="reference external" href="#refinement.Refine.execute_action">execute_action</a> method of class Refine in refinement.py. Find below the tips and pointers on how to execute each of the method:</p>
+<div class="section" id="id1">
+<h4>Pick<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>Use <a class="reference external" href="#problem.Helper.execute_pick_action">execute_pick_action</a> method of the <a class="reference external" href="#problem.Helper">class Helper</a> to convert the pick actions in the plan returned by the planner to the pick action of the TurtleBot. See <a class="reference external" href="#problem.Helper.execute_pick_action">here</a> for more details.</p>
+</div>
+<div class="section" id="id2">
+<h4>Place<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Use <a class="reference external" href="#problem.Helper.execute_place_action">execute_place_action</a> method of the <a class="reference external" href="#problem.Helper">class Helper</a> to convert the place actions in the plan returned by the planner to the place action of the TurtleBot. See <a class="reference external" href="#problem.Helper.execute_place_action">here</a> for more details.</p>
+</div>
+<div class="section" id="id5">
+<h4>Move<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>Use <a class="reference external" href="#problem.Helper.execute_move_action">execute_move_action</a> method of the <a class="reference external" href="#problem.Helper">class Helper</a> to convert the move actions in the plan returned by the planner to the move action(s) of the TurtleBot. See <a class="reference external" href="#problem.Helper.execute_place_action">here</a> for more details.</p>
+</div>
+</div>
+</div>
+<div class="section" id="tips-and-suggestions">
+<h2>Tips and Suggestions<a class="headerlink" href="#tips-and-suggestions" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Test your implementation with smaller number of books and smaller number of subjects to see if it works as expected.</p>
+</li>
+<li><p class="first">If refinement of the move action fails, check visually on Gazebo if actually there is no refinement possible.</p>
+</li>
+<li><p class="first">Kill the launched servers and nodes and restart from step 2 onwards when you start a new run so that the Turtlebot3 is reset to its initial state.</p>
+</li>
+<li><p class="first">Remember to source the setup.bash file in each of the new terminal you start.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/catkin_ws/devel/setup.bash
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">At times, the TurtleBot takes some time to perform an action, so wait for some time if no movement is visible.</p>
+</li>
+<li><p class="first">Check the discussion page on Canvas to see if the problem you are facing is already answered. If not, start a new discussion.</p>
+</li>
+</ol>
+<div class="section" id="pddl-resources">
+<h3>PDDL Resources<a class="headerlink" href="#pddl-resources" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>A simple place to start would be <a class="reference external" href="https://www.dewilkins.org/papers/pddl.pdf">PDDL Version 1.2 Manual</a>.</li>
+<li>If you are looking for an exhaustive resource, you can refer <a class="reference external" href="https://www.morganclaypool.com/doi/abs/10.2200/S00900ED2V01Y201902AIM042">An Introduction to the PDDL</a>. This book is available on ASU’s Library.</li>
+<li>A collection of PDDL Domains and Problems is available on <a class="reference external" href="https://github.com/potassco/pddl-instances">this Github Repository</a>.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p>This API covers only the part of code that you will have to use to complete this Homework. You are free to explore the code by looking into each file separately, but do not change anything other than refinement.py, domain.pddl, and problem.pddl.</p>
+<div class="section" id="class-state">
+<h2>class State<a class="headerlink" href="#class-state" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="problem.State">
+<em class="property">class </em><code class="descclassname">problem.</code><code class="descname">State</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>orientation</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/problem.html#State"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#problem.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class defines the state of the TurtleBot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>float</em>) – current x-cordinate of turtlebot</li>
+<li><strong>y</strong> (<em>float</em>) – current x-cordinate of turtlebot</li>
+<li><strong>orientation</strong> (<em>float</em>) – current orientation of turtlebot, can be either NORTH, SOUTH, EAST, WEST</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="id8">
+<h2>class Helper<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="problem.Helper">
+<em class="property">class </em><code class="descclassname">problem.</code><code class="descname">Helper</code><a class="reference internal" href="_modules/problem.html#Helper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#problem.Helper" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides the methods used to control TurtleBot.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">problem</span> <span class="kn">import</span> <span class="n">Helper</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">Helper</span><span class="p">()</span>
+<span class="n">init_state</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">get_init_state</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="method">
+<dt id="problem.Helper.execute_move_action">
+<code class="descname">execute_move_action</code><span class="sig-paren">(</span><em>action_list</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/problem.html#Helper.execute_move_action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#problem.Helper.execute_move_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>This action executes the actions in the action_seq. The actions are executed in the same sequence as they appear in action_seq list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action_seq</strong> (<em>list</em><em>(</em><em>str</em><em>)</em>) – Sequence of actions to be executed by the TurtleBot.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">None</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">ServiceException: When call to rospy fails.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">problem</span> <span class="kn">import</span> <span class="n">Helper</span><span class="p">,</span> <span class="n">State</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">Helper</span><span class="p">()</span>
+<span class="n">h</span><span class="o">.</span><span class="n">execute_move_action</span><span class="p">(</span><span class="n">action_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This method will execute the actions even if they are wrong semantically, i.e. do not have the desired effect. It is the responsibility of the caller to ensure that the action sequence is applicable from the current state of the robot.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="problem.Helper.execute_pick_action">
+<code class="descname">execute_pick_action</code><span class="sig-paren">(</span><em>book_name</em>, <em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/problem.html#Helper.execute_pick_action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#problem.Helper.execute_pick_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>This action picks the book named book_name located at State robot_state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>book_name</strong> (<em>str</em>) – Name of the book</li>
+<li><strong>robot_state</strong> (<a class="reference internal" href="#problem.State" title="problem.State"><em>State</em></a>) – State of the robot.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if the place action was successful. False, otherwise.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">bool</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">ServiceException: When call to rospy fails.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">problem</span> <span class="kn">import</span> <span class="n">Helper</span><span class="p">,</span> <span class="n">State</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">Helper</span><span class="p">()</span>
+<span class="n">execute_status</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">execute_pick_action</span><span class="p">(</span><span class="n">book_name</span><span class="p">,</span> <span class="n">curr_state</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">execute_status</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s2">&quot;Pick Action Failed&quot;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>This action will fail (Return False) if:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li>Book name is not valid.</li>
+<li>Robot Location is not within the load location of the book, i.e. robot is not in the viscinity of the book.</li>
+</ul>
+</td></tr></table>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="problem.Helper.execute_place_action">
+<code class="descname">execute_place_action</code><span class="sig-paren">(</span><em>book_name</em>, <em>bin_name</em>, <em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/problem.html#Helper.execute_place_action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#problem.Helper.execute_place_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>This action places the book named book_name in the bin named bin_name when the TurtleBot is at State robot_state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>book_name</strong> (<em>str</em>) – Name of the book that has to placed in the bin.</li>
+<li><strong>bin_name</strong> (<em>str</em>) – Name of the bin where the book named book_name will be placed.</li>
+<li><strong>robot_state</strong> (<a class="reference internal" href="#problem.State" title="problem.State"><em>State</em></a>) – State of the robot and and the bin.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if the place action was successful. False, otherwise.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">bool</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">ServiceException: When call to rospy fails.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">problem</span> <span class="kn">import</span> <span class="n">Helper</span><span class="p">,</span> <span class="n">State</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">Helper</span><span class="p">()</span>
+<span class="n">execute_status</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">execute_place_action</span><span class="p">(</span><span class="n">book_name</span><span class="p">,</span> <span class="n">bin_name</span><span class="p">,</span> <span class="n">curr_state</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">execute_status</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s2">&quot;Pick Action Failed&quot;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>This action will fail (Return False) if:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li>Book name or Bin name is not valid.</li>
+<li>Book size and bin size does not match.</li>
+<li>Subject of the book and bin does not match.</li>
+<li>Robot Location is not within the load location of the bin, i.e. robot is not in the viscinity of the bin.</li>
+</ul>
+</td></tr></table>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="class-refine">
+<h2>class Refine<a class="headerlink" href="#class-refine" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="refinement.Refine">
+<em class="property">class </em><code class="descclassname">refinement.</code><code class="descname">Refine</code><span class="sig-paren">(</span><em>plan_file</em>, <em>planner</em><span class="sig-paren">)</span><a class="headerlink" href="#refinement.Refine" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class has code to refine the high level actions used by PDDL to the the low level actions used by the TurtleBot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>plan_file</strong> (<em>str</em>) – Path to the file where plan is stored. This is generally stored at the path from where the planner was called.</li>
+<li><strong>planner</strong> (<em>str</em>) – Planner that was used to generate this plan. This is needed to parse the plan and convert to/store in a data structure in Python. Only possible values are FF and FD.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Attributes:</dt>
+<dd><p class="first"><strong>status_subscriber</strong>: To subscribe to the “/status” topic, which gives the State of the robot.</p>
+<p><strong>actions_queue</strong> (tuple(action_name, action_params)): Used to store the refined action tuples. You can decide what parameters you want to store for each action. Store the parameters that you need to pass to execute_&lt;action_name&gt;_action methods of RobotActionServer class.</p>
+<p class="last"><strong>action_index</strong> (int): Stores the index of action that needs to be sent to RobotActionServer for execution.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="refinement.Refine.execute_action">
+<code class="descname">execute_action</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#refinement.Refine.execute_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method picks an action from self.actions and send it to RobotActionServer for execution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="refinement.Refine.get_path">
+<code class="descname">get_path</code><span class="sig-paren">(</span><em>init_state</em>, <em>goal_locations</em><span class="sig-paren">)</span><a class="headerlink" href="#refinement.Refine.get_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method searches for a path from init_state to one of the possible goal_locations</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>init_state</strong> (<a class="reference internal" href="#problem.State" title="problem.State"><em>State</em></a>) – Current state of robot</li>
+<li><strong>goal_locations</strong> (<em>list</em><em>(</em><a class="reference internal" href="#problem.State" title="problem.State"><em>State</em></a><em>)</em>) – list of target locations to search the path e.g. [(x1, y1), (x2, y2), ..]. This is important if there are multiple books of a subject.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><table class="hlist"><tr><td><ul class="simple">
+<li><strong>action_list</strong>: list of actions to execute to go from source to target</li>
+<li><strong>final_state</strong>: target state that is reached (will be one of goal_locations)</li>
+<li><strong>goal_reached</strong>: True/False indicating if one of the goal_locations was reached</li>
+</ul>
+</td></tr></table>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="refinement.Refine.refine_plan">
+<code class="descname">refine_plan</code><span class="sig-paren">(</span><em>plan_file</em>, <em>planner</em><span class="sig-paren">)</span><a class="headerlink" href="#refinement.Refine.refine_plan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform downward refinement to convert the high level plan into a low level executable plan.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>plan_file</strong> (<em>str</em>) – Path to the file where plan is stored. This is generally stored at the path from where the planner was called.</li>
+<li><strong>planner</strong> (<em>str</em>) – Planner that was used to generate this plan. This is needed to parse the plan and convert to/store in a data structure in Python. Only possible values are FF and FD.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">List of refined action tuples that will be added to the execution queue.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list(tuples)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li>Parse the plan from plan_file. This has to be according to the planner you are using.</li>
+<li>use get_path(current_state, load_locations) to refine Move action.</li>
+<li>Subject of the book and bin does not match.</li>
+<li>Robot Location is not within the load location of the bin, i.e. robot is not in the viscinity of the bin.</li>
+</ul>
+</td></tr></table>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to CSE 571 Fall 2019 - HW2!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, AAIR Lab, ASU
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
