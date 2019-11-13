@@ -17,7 +17,7 @@ from planning.srv import PickActionMsg
 from std_msgs.msg import String
 from planning.srv import RemoveBlockedEdgeMsg
 from planning.srv import MoveActionMsg
-from planning.srv import SuckActionMsg
+#from planning.srv import SuckActionMsg
 
 class RobotActionsServer:
 	def __init__(self, object_dict):
@@ -32,7 +32,7 @@ class RobotActionsServer:
 		rospy.Service("execute_place_action",PlaceActionMsg,self.execute_place_action)
 		rospy.Service("execute_pick_action",PickActionMsg,self.execute_pick_action)
 		rospy.Service("execute_move_action",MoveActionMsg,self.execute_move_action)
-		rospy.Service("execute_suck_action",SuckActionMsg, self.execute_suck_action())
+#		rospy.Service("execute_suck_action",SuckActionMsg, self.execute_suck_action())
 		print "Action Server Initiated"
 
 	def change_state(self,book_name,target_transform):

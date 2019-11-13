@@ -166,8 +166,8 @@ if __name__ == "__main__":
     n_subjects = args.n_subjects
     n_books = args.n_books
     seed = args.seed
-    print n_subjects
-    print n_books
+    print 'aa',n_subjects
+    print 'aa', n_books
     if n_subjects > 10:
         print('Maximum no. of subjects available is: 10')
         exit()
@@ -185,14 +185,20 @@ if __name__ == "__main__":
     book_sizes = 2
     book_count_of_each_subject = n_books * book_sizes
     book_count_list = [n_books] * n_subjects * book_sizes
+    print book_count_list
+    print '%%%%%%%%%%%%%%%%%%%%%%%'
     number_of_trollies = n_subjects * 2
-    grid_size = 6 * n_subjects
-    books, mazeInfo = generate_blocked_edges(grid_size, book_count_list, seed,  number_of_trollies, root_path,0.5)
+    grid_size = 6
+    print "$sas$$$$$$$$klasnlkansklc$$$$"
+    books, mazeInfo = generate_blocked_edges(grid_size, 5, seed, root_path,0.5)
+    print "$$$$$$$$$$"
     path = root_path + "/problem.pddl"
-    problem_generator.write_pddl(path ,books)
+    #problem_generator.write_pddl(path ,books)
     # pickle.dump(books,out_file)
     rospy.init_node('server')
     RobotActionsServer(books)
+    print "$$$$$$$$$$$$$"
     # rospy.sleep(3)
        # pprint.pprint(books)
     server()
+    print "$$$$$$$$$$$$$"
