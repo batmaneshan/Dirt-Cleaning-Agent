@@ -10,7 +10,7 @@ __maintainers__ = ["Pulkit Verma", "Abhyudaya Srinet"]
 __contact__ = "aair.lab@asu.edu"
 __docformat__ = 'reStructuredText'
 
-from planning.srv import *
+from dirt_cleaning_agent.srv import *
 import rospy
 from mazeGenerator import *
 import sys

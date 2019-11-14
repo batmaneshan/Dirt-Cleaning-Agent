@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(planning)
+project(dirt_cleaning_agent)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -68,6 +68,7 @@ find_package(catkin REQUIRED COMPONENTS
    PickActionMsg.srv
    RemoveBlockedEdgeMsg.srv
    MoveActionMsg.srv
+   SuckActionMsg.srv
  )
 
 ## Generate actions in the 'action' folder

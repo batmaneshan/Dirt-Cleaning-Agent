@@ -12,16 +12,16 @@ __docformat__ = 'reStructuredText'
 
 import rospy
 from gazebo_msgs.msg import ModelState
-from planning.srv import PlaceActionMsg
-from planning.srv import PickActionMsg
+from dirt_cleaning_agent.srv import PlaceActionMsg
+from dirt_cleaning_agent.srv import PickActionMsg
 from std_msgs.msg import String
-from planning.srv import RemoveBlockedEdgeMsg
-from planning.srv import MoveActionMsg
-from planning.srv import SuckActionMsg
+from dirt_cleaning_agent.srv import RemoveBlockedEdgeMsg
+from dirt_cleaning_agent.srv import MoveActionMsg
+from dirt_cleaning_agent.srv import SuckActionMsg
 
 class RobotActionsServer:
 	def __init__(self, object_dict):
-		self.dirt_final_state = {'x':0.0, 'y':0.0, 'z':0.0}
+		self.dirt_final_state = {'x':-0.75, 'y':-0.75, 'z':0.5}
 		self.failure = -1
 		self.success = 1
 		self.object_dict = object_dict

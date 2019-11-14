@@ -1,14 +1,12 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>planning</name>
+  <name>dirt_cleaning_agent</name>
   <version>0.0.0</version>
-  <description>Planning Assignment</description>
+  <description>Final Project</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
-  <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="cdave1@asu.edu">Chirav Dave, Ketan Patil, Naman P Shah</maintainer>
-
+  <maintainer email="jane.doe@example.com">Jane Doe</maintainer>
 
   <!-- One license tag required, multiple allowed, one license per tag -->
   <!-- Commonly used license strings: -->
