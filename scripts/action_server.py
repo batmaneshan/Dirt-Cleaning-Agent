@@ -17,10 +17,11 @@ from planning.srv import PickActionMsg
 from std_msgs.msg import String
 from planning.srv import RemoveBlockedEdgeMsg
 from planning.srv import MoveActionMsg
-#from planning.srv import SuckActionMsg
+from planning.srv import SuckActionMsg
 
 class RobotActionsServer:
 	def __init__(self, object_dict):
+		self.dirt_final_state = {'x':0.0, 'y':0.0, 'z':0.0}
 		self.failure = -1
 		self.success = 1
 		self.object_dict = object_dict
@@ -32,12 +33,20 @@ class RobotActionsServer:
 		rospy.Service("execute_place_action",PlaceActionMsg,self.execute_place_action)
 		rospy.Service("execute_pick_action",PickActionMsg,self.execute_pick_action)
 		rospy.Service("execute_move_action",MoveActionMsg,self.execute_move_action)
-#		rospy.Service("execute_suck_action",SuckActionMsg, self.execute_suck_action())
+		rospy.Service("execute_suck_action",SuckActionMsg, self.execute_suck_action)
 		print "Action Server Initiated"
 
 	def change_state(self,book_name,target_transform):
 		model_state_msg = ModelState()
 		model_state_msg.model_name = book_name
+		model_state_msg.pose.position.x = target_transform[0]
+		model_state_msg.pose.position.y = target_transform[1]
+		model_state_msg.pose.position.z = target_transform[2]
+		self.model_state_publisher.publish(model_state_msg)
+
+	def remove_dirt(self, dirt_id, target_transform):
+		model_state_msg = ModelState()
+		model_state_msg.model_name = dirt_id
 		model_state_msg.pose.position.x = target_transform[0]
 		model_state_msg.pose.position.y = target_transform[1]
 		model_state_msg.pose.position.z = target_transform[2]
@@ -84,13 +93,11 @@ class RobotActionsServer:
 		return self.failure
 
 	def execute_suck_action(self, req):
-		garbage_id = req.garbage_id
+		dirt_id = req.dirt_id
 		robot_state = [req.x, req.y, req.orientation]
-		if garbage_id in self.object_dict["garbage"]:
-			if (robot_state[0], robot_state[1]) in self.object_dict["garbage"][garbage_id]["suck_loc"]:
-				# code to suck
-				# remove the object of given garbage_id from the grid
-				# change some environment variable
+		if dirt_id in self.object_dict["dirts"]:
+			if (robot_state[0], robot_state[1]) in self.object_dict["dirts"][dirt_id]["load_loc"]:
+				self.remove_dirt(dirt_id, self.dirt_final_state)
 				return self.success
 		return self.failure
 
