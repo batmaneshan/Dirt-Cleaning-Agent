@@ -1,4 +1,4 @@
-string garbage_id
+string dirt_id
 float64 x
 float64 y
 string orientation

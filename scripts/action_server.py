@@ -17,11 +17,11 @@ from dirt_cleaning_agent.srv import PickActionMsg
 from std_msgs.msg import String
 from dirt_cleaning_agent.srv import RemoveBlockedEdgeMsg
 from dirt_cleaning_agent.srv import MoveActionMsg
-from dirt_cleaning_agent.srv import SuckActionMsg
+from dirt_cleaning_agent.srv import CleanActionMsg
 
 class RobotActionsServer:
 	def __init__(self, object_dict):
-		self.dirt_final_state = {'x':-0.75, 'y':-0.75, 'z':0.5}
+		self.dirt_final_state = {'x':-0.75, 'y':-0.75, 'z':1.0}
 		self.failure = -1
 		self.success = 1
 		self.object_dict = object_dict
@@ -33,7 +33,7 @@ class RobotActionsServer:
 		rospy.Service("execute_place_action",PlaceActionMsg,self.execute_place_action)
 		rospy.Service("execute_pick_action",PickActionMsg,self.execute_pick_action)
 		rospy.Service("execute_move_action",MoveActionMsg,self.execute_move_action)
-		rospy.Service("execute_suck_action",SuckActionMsg, self.execute_suck_action)
+		rospy.Service("execute_clean_action",CleanActionMsg, self.execute_clean_action)
 		print "Action Server Initiated"
 
 	def change_state(self,book_name,target_transform):
@@ -92,12 +92,13 @@ class RobotActionsServer:
 		self.status_publisher.publish(self.status)
 		return self.failure
 
-	def execute_suck_action(self, req):
+	def execute_clean_action(self, req):
 		dirt_id = req.dirt_id
 		robot_state = [req.x, req.y, req.orientation]
 		if dirt_id in self.object_dict["dirts"]:
 			if (robot_state[0], robot_state[1]) in self.object_dict["dirts"][dirt_id]["load_loc"]:
 				self.remove_dirt(dirt_id, self.dirt_final_state)
+				self.dirt_final_state['x'] = self.dirt_final_state['x'] + 0.50
 				return self.success
 		return self.failure
 

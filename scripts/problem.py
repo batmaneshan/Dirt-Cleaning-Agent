@@ -105,17 +105,17 @@ class Helper:
         except rospy.ServiceException,e:
             print "Sevice call failed: %s"%e
 
-    def execute_suck_action(self, dirt_id, state):
+    def execute_clean_action(self, dirt_id, state):
         """
-        This action is to visualize that dirt has been sucked up by the robot. This action checks if the robot is in the load location of a dirty cell and then removes that dirt from that cell and places it in a remote position
+        This action is to visualize that dirt has been cleaned up by the robot. This action checks if the robot is in the load location of a dirty cell and then removes that dirt from that cell and places it in a remote position
         :param dirt_id: refers to the dirt we attempting to clean
         :param state:the state of the robot
         :return: True if the cleaning was successful, false if not
         """
-        rospy.wait_for_service('execute_suck_action')
+        rospy.wait_for_service('execute_clean_action')
         try:
-            suck_action = rospy.ServiceProsxy('execute_suck_action', SuckActionMsg)
-            response = suck_action(dirt_id, state.x, state.y, state.orientation)
+            clean_action = rospy.ServiceProsxy('execute_clean_action', CleanActionMsg)
+            response = clean_action(dirt_id, state.x, state.y, state.orientation)
 
             if response.result == -1:
                 return False
