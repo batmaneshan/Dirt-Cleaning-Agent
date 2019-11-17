@@ -68,7 +68,7 @@ find_package(catkin REQUIRED COMPONENTS
    PickActionMsg.srv
    RemoveBlockedEdgeMsg.srv
    MoveActionMsg.srv
-   SuckActionMsg.srv
+   CleanActionMsg.srv
  )
 
 ## Generate actions in the 'action' folder

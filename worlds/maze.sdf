@@ -139,76 +139,76 @@
 </link>
 </model>
 <model name='dirt_1'>
-<pose frame=''>0.76497588 1.0 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>0.770113606618 3.0 -0.000405 -1e-06 1e-06 0</pose>
 <scale>1 1 1</scale>
 <link name='cover'>
-<pose frame=''>0.76497588 0.999892 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>0.770113606618 2.999892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>0.76497588 1.000608 0.015 0 1e-06 0</pose>
+<pose frame=''>0.770113606618 3.000608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='dirt_2'>
-<pose frame=''>0.271556095855 0.5 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>0.261483659588 0.0 -0.000405 -1e-06 1e-06 0</pose>
 <scale>1 1 1</scale>
 <link name='cover'>
-<pose frame=''>0.271556095855 0.499892 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>0.261483659588 -0.000108 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>0.271556095855 0.500608 0.015 0 1e-06 0</pose>
+<pose frame=''>0.261483659588 0.000608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='dirt_3'>
-<pose frame=''>0.257466017915 3.0 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>0.764326270502 1.0 -0.000405 -1e-06 1e-06 0</pose>
 <scale>1 1 1</scale>
 <link name='cover'>
-<pose frame=''>0.257466017915 2.999892 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>0.764326270502 0.999892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>0.257466017915 3.000608 0.015 0 1e-06 0</pose>
+<pose frame=''>0.764326270502 1.000608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='dirt_4'>
-<pose frame=''>0.271222267236 0.0 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>0.252751737748 1.5 -0.000405 -1e-06 1e-06 0</pose>
 <scale>1 1 1</scale>
 <link name='cover'>
-<pose frame=''>0.271222267236 -0.000108 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>0.252751737748 1.499892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>0.271222267236 0.000608 0.015 0 1e-06 0</pose>
+<pose frame=''>0.252751737748 1.500608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='dirt_5'>
-<pose frame=''>1.0 0.726672340022 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>1.0 0.748697204511 -0.000405 -1e-06 1e-06 0</pose>
 <scale>1 1 1</scale>
 <link name='cover'>
-<pose frame=''>1.0 0.726564340022 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>1.0 0.748589204511 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>1.0 0.727280340022 0.015 0 1e-06 0</pose>
+<pose frame=''>1.0 0.749305204511 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
