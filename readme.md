@@ -1,5 +1,7 @@
 ## Running the Demo
 
+Clone this branch and rename it as cse571_project
+
 To start the demo, run the following commands in order:
 
 1. Run `./env_setup.sh`
