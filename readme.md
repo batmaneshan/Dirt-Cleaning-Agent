@@ -1,8 +1,11 @@
 ## Running the Demo
 
 Clone this repository in your ~/catkin_ws/src folder
+
 Rename the directory to cse571_project
+
 chmod u+x ~/catkin_ws/src/cse571_project/scripts/*.py
+
 chmod u+x ~/catkin_ws/src/cse571_project/env_setup.sh && ~/catkin_ws/src/cse571_project/env_setup.sh
 
 To start the demo, run the following commands in order:
