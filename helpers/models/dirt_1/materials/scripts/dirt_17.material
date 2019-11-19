@@ -7,7 +7,7 @@ material dirt_17
       texture_unit
       {
         texture cover17.jpg
-	scale 1 1
+	scale 1 1.3
       }
     }
   }

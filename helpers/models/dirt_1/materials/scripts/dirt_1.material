@@ -7,7 +7,7 @@ material dirt_1
       texture_unit
       {
         texture cover1.jpg
-	scale 1 1
+	scale 1 1.3
       }
     }
   }

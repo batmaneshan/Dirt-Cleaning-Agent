@@ -11,7 +11,7 @@ chmod u+x ~/catkin_ws/src/cse571_project/env_setup.sh && ~/catkin_ws/src/cse571_
 To start the demo, run the following commands in order:
 
 1. Run `roscore`
-2. Run `rosrun cse571_project server.py -d 5`
+2. Run `rosrun cse571_project server.py -d 5 -s 6`
 3. Run `roslaunch cse571_project maze.launch`
 4. Run `rosrun cse571_project move_tbot3.py`
 5. Run `rosrun cse571_project random_walk.py`

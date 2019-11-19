@@ -16,10 +16,10 @@ books = None
 mazeInfo = None
 mazeInfoCopy = None
 parser = argparse.ArgumentParser()
-parser.add_argument('-sub', help='for providing no. of subjects', metavar='5', action='store', dest='n_subjects', default=2, type=int)
-parser.add_argument('-b', help='for providing no. of books for each subject', metavar='5', action='store', dest='n_books', default=2, type=int)
+parser.add_argument('-s', help='for providing gridsize', metavar='5', action='store', dest='n_size', default=4, type=int)
+#parser.add_argument('-b', help='for providing no. of books for each subject', metavar='5', action='store', dest='n_books', default=2, type=int)
 parser.add_argument('-d', help='for providing number of dirts', metavar='5', action='store', dest='n_dirts', default=4, type=int)
-parser.add_argument('-s', help='for providing random seed', metavar='32', action='store', dest='seed', default=int(time.time()), type=int)
+parser.add_argument('-s1', help='for providing random seed', metavar='32', action='store', dest='seed', default=int(time.time()), type=int)
 parser.add_argument('-action_seed', help='for providing action selection random seed', metavar='32', action='store', dest='action_seed', default=int(time.time()), type=int)
 robot_action_server = None
 
@@ -69,26 +69,28 @@ def server():
 
 if __name__ == "__main__":
 	args = parser.parse_args()
-	n_subjects = args.n_subjects
-	n_books = args.n_books
-	n_dirts = args.n_dirts
+	n_dirts=args.n_dirts
+	n_size = args.n_size
+
 	seed = args.seed
-	print "n_subjectes: ", n_subjects
-	print "n_books:", n_books
-	print("n_dirts:", n_dirts)
-	if n_subjects > 20:
-		print('Maximum no. of subjects available is: 20')
-		exit()
-	book_sizes = 2
-	book_count_of_each_subject = n_books * book_sizes
-	book_count_list = [n_books] * n_subjects * book_sizes
-	number_of_trollies = n_subjects * 2
+	print "Starting server with GridSize:{0} and no of dirts:{1}".format(n_size,n_dirts)
+
+	#print "n_subjectes: ", n_subjects
+	#print "n_books:", n_books
+	#print("n_dirts:", n_dirts)
+	#if n_subjects > 20:
+	##	exit()
+	#book_sizes = 2
+	#book_count_of_each_subject = n_books * book_sizes
+	#book_count_list = [n_books] * n_subjects * book_sizes
+	#number_of_trollies = n_subjects * 2
 	# grid_size = max((((book_count_of_each_subject * n_subjects) / 4) // 1 ) + 1, ((number_of_trollies/4)*7), 10)
-	grid_size = 6 * n_subjects
-	mazeInfo = Maze(grid_size, 0.5)
-	books = mazeInfo.generate_blocked_edges(book_count_list, seed,  number_of_trollies, root_path)
-	mazeInfoCopy = copy.deepcopy(mazeInfo)
-	print "blocked_edges: ", mazeInfo.blocked_edges
+	#grid_size = 6 * n_subjects
+	#mazeInfo = Maze(grid_size, 0.5)
+#	books = mazeInfo.generate_blocked_edges(book_count_list, seed,  number_of_trollies, root_path)
+#	mazeInfoCopy = copy.deepcopy(mazeInfo)
+#	print "blocked_edges: ", mazeInfo.blocked_edges
+	dirts, mazeInfo = generate_blocked_edges(n_size, n_dirts, seed, root_path, 0.5)
 	rospy.init_node('server')
-	robot_action_server = RobotActionsServer(books, root_path, args.action_seed)
+	robot_action_server = RobotActionsServer(dirts, root_path, args.action_seed)
 	server()
