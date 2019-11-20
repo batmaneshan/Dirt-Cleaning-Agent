@@ -99,191 +99,116 @@
         <pose frame=''>0 0 10 0 -0 0</pose>
       </light>
 <model name='wall1'>
-<pose frame=''>-1 1.5 0 0 -0 -1.55905</pose>
-<scale>0.666666666667 1 0.03</scale>
+<pose frame=''>-1 1.0 0 0 -0 -1.55905</pose>
+<scale>0.533333333333 1 0.03</scale>
 <link name='link'>
-<pose frame=''>-1 1.5 0.42 -0 0 -1.55905</pose>
+<pose frame=''>-1 1.0 0.42 -0 0 -1.55905</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 0 0 -0 0</acceleration>
 <wrench>0 0 0 0 -0 0</wrench>
 </link>
 </model>
 <model name='wall2'>
-<pose frame=''>1.5 4.0 0 0 -0 0</pose>
-<scale>0.666666666667 1 0.03</scale>
+<pose frame=''>1.0 3.0 0 0 -0 0</pose>
+<scale>0.533333333333 1 0.03</scale>
 <link name='link'>
-<pose frame=''>1.5 4.0 0.42 -0 0 0</pose>
+<pose frame=''>1.0 3.0 0.42 -0 0 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 0 0 -0 0</acceleration>
 <wrench>0 0 0 0 -0 0</wrench>
 </link>
 </model>
 <model name='wall3'>
-<pose frame=''>4.0 1.5 0 0 -0 -1.55905</pose>
-<scale>0.666666666667 1 0.03</scale>
+<pose frame=''>3.0 1.0 0 0 -0 -1.55905</pose>
+<scale>0.533333333333 1 0.03</scale>
 <link name='link'>
-<pose frame=''>4.0 1.5 0.42 -0 0 -1.55905</pose>
+<pose frame=''>3.0 1.0 0.42 -0 0 -1.55905</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 0 0 -0 0</acceleration>
 <wrench>0 0 0 0 -0 0</wrench>
 </link>
 </model>
 <model name='wall4'>
-<pose frame=''>1.5 -1 0 0 -0 0</pose>
-<scale>0.666666666667 1 0.03</scale>
+<pose frame=''>1.0 -1 0 0 -0 0</pose>
+<scale>0.533333333333 1 0.03</scale>
 <link name='link'>
-<pose frame=''>1.5 -1 0.42 -0 0 0</pose>
+<pose frame=''>1.0 -1 0.42 -0 0 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 0 0 -0 0</acceleration>
 <wrench>0 0 0 0 -0 0</wrench>
 </link>
 </model>
 <model name='dirt_1'>
-<pose frame=''>0.5 0.74498278368 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>0.5 1.0 -0.000405 -1e-06 1e-06 0</pose>
 <scale>1 1 1</scale>
 <link name='cover'>
-<pose frame=''>0.5 0.74487478368 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>0.5 0.999892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>0.5 0.74559078368 0.015 0 1e-06 0</pose>
+<pose frame=''>0.5 1.000608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='dirt_2'>
-<pose frame=''>0.0 2.72862255806 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>1.0 0.5 -0.000405 -1e-06 1e-06 0</pose>
 <scale>1 1 1</scale>
 <link name='cover'>
-<pose frame=''>0.0 2.72851455806 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>1.0 0.499892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>0.0 2.72923055806 0.015 0 1e-06 0</pose>
+<pose frame=''>1.0 0.500608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='dirt_3'>
-<pose frame=''>1.0 0.737101727449 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>0.0 0.0 -0.000405 -1e-06 1e-06 0</pose>
 <scale>1 1 1</scale>
 <link name='cover'>
-<pose frame=''>1.0 0.736993727449 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>0.0 -0.000108 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>1.0 0.737709727449 0.015 0 1e-06 0</pose>
+<pose frame=''>0.0 0.000608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='dirt_4'>
-<pose frame=''>2.5 0.731754519732 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>1.0 1.5 -0.000405 -1e-06 1e-06 0</pose>
 <scale>1 1 1</scale>
 <link name='cover'>
-<pose frame=''>2.5 0.731646519732 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>1.0 1.499892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>2.5 0.732362519732 0.015 0 1e-06 0</pose>
+<pose frame=''>1.0 1.500608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='dirt_5'>
-<pose frame=''>2.5 2.24370168517 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>0.0 1.5 -0.000405 -1e-06 1e-06 0</pose>
 <scale>1 1 1</scale>
 <link name='cover'>
-<pose frame=''>2.5 2.24359368517 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>0.0 1.499892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>2.5 2.24430968517 0.015 0 1e-06 0</pose>
-<velocity>0 0 0 0 -0 0</velocity>
-<acceleration>0 0 -9.8 0 -0 0</acceleration>
-<wrench>0 0 -9.8 0 -0 0</wrench>
-</link>
-</model><model name='dirt_6'>
-<pose frame=''>2.0 0.725908974409 -0.000405 -1e-06 1e-06 0</pose>
-<scale>1 1 1</scale>
-<link name='cover'>
-<pose frame=''>2.0 0.725800974409 0.015 -1e-06 1e-06 0</pose>
-<velocity>0 0 0 0 -0 0</velocity>
-<acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
-<wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
-</link>
-<link name='page'>
-<pose frame=''>2.0 0.726516974409 0.015 0 1e-06 0</pose>
-<velocity>0 0 0 0 -0 0</velocity>
-<acceleration>0 0 -9.8 0 -0 0</acceleration>
-<wrench>0 0 -9.8 0 -0 0</wrench>
-</link>
-</model><model name='dirt_7'>
-<pose frame=''>0.758577966961 0.0 -0.000405 -1e-06 1e-06 0</pose>
-<scale>1 1 1</scale>
-<link name='cover'>
-<pose frame=''>0.758577966961 -0.000108 0.015 -1e-06 1e-06 0</pose>
-<velocity>0 0 0 0 -0 0</velocity>
-<acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
-<wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
-</link>
-<link name='page'>
-<pose frame=''>0.758577966961 0.000608 0.015 0 1e-06 0</pose>
-<velocity>0 0 0 0 -0 0</velocity>
-<acceleration>0 0 -9.8 0 -0 0</acceleration>
-<wrench>0 0 -9.8 0 -0 0</wrench>
-</link>
-</model><model name='dirt_8'>
-<pose frame=''>0.261353283947 1.5 -0.000405 -1e-06 1e-06 0</pose>
-<scale>1 1 1</scale>
-<link name='cover'>
-<pose frame=''>0.261353283947 1.499892 0.015 -1e-06 1e-06 0</pose>
-<velocity>0 0 0 0 -0 0</velocity>
-<acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
-<wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
-</link>
-<link name='page'>
-<pose frame=''>0.261353283947 1.500608 0.015 0 1e-06 0</pose>
-<velocity>0 0 0 0 -0 0</velocity>
-<acceleration>0 0 -9.8 0 -0 0</acceleration>
-<wrench>0 0 -9.8 0 -0 0</wrench>
-</link>
-</model><model name='dirt_9'>
-<pose frame=''>1.25466860451 2.0 -0.000405 -1e-06 1e-06 0</pose>
-<scale>1 1 1</scale>
-<link name='cover'>
-<pose frame=''>1.25466860451 1.999892 0.015 -1e-06 1e-06 0</pose>
-<velocity>0 0 0 0 -0 0</velocity>
-<acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
-<wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
-</link>
-<link name='page'>
-<pose frame=''>1.25466860451 2.000608 0.015 0 1e-06 0</pose>
-<velocity>0 0 0 0 -0 0</velocity>
-<acceleration>0 0 -9.8 0 -0 0</acceleration>
-<wrench>0 0 -9.8 0 -0 0</wrench>
-</link>
-</model><model name='dirt_10'>
-<pose frame=''>2.26315900791 1.0 -0.000405 -1e-06 1e-06 0</pose>
-<scale>1 1 1</scale>
-<link name='cover'>
-<pose frame=''>2.26315900791 0.999892 0.015 -1e-06 1e-06 0</pose>
-<velocity>0 0 0 0 -0 0</velocity>
-<acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
-<wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
-</link>
-<link name='page'>
-<pose frame=''>2.26315900791 1.000608 0.015 0 1e-06 0</pose>
+<pose frame=''>0.0 1.500608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
@@ -468,7 +393,7 @@
 </link>
 <pose frame=''>-0.779308 4.01849 0 0 -0 0</pose>
 </model>
-<model name='dirt_1'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n <geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<script>/n<uri>model://dirt_1/materials/scripts/dirt_1.material</uri>/n<uri>model://dirt_1/materials/textures/cover1.jpg</uri>/n<name>dirt_1</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='dirt_2'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n <geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<script>/n<uri>model://dirt_1/materials/scripts/dirt_2.material</uri>/n<uri>model://dirt_1/materials/textures/cover2.jpg</uri>/n<name>dirt_2</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='dirt_3'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n <geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<script>/n<uri>model://dirt_1/materials/scripts/dirt_3.material</uri>/n<uri>model://dirt_1/materials/textures/cover3.jpg</uri>/n<name>dirt_3</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='dirt_4'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n <geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<script>/n<uri>model://dirt_1/materials/scripts/dirt_4.material</uri>/n<uri>model://dirt_1/materials/textures/cover4.jpg</uri>/n<name>dirt_4</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='dirt_5'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n <geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<script>/n<uri>model://dirt_1/materials/scripts/dirt_5.material</uri>/n<uri>model://dirt_1/materials/textures/cover5.jpg</uri>/n<name>dirt_5</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='dirt_6'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n <geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<script>/n<uri>model://dirt_1/materials/scripts/dirt_6.material</uri>/n<uri>model://dirt_1/materials/textures/cover6.jpg</uri>/n<name>dirt_6</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='dirt_7'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n <geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<script>/n<uri>model://dirt_1/materials/scripts/dirt_7.material</uri>/n<uri>model://dirt_1/materials/textures/cover7.jpg</uri>/n<name>dirt_7</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='dirt_8'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n <geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<script>/n<uri>model://dirt_1/materials/scripts/dirt_8.material</uri>/n<uri>model://dirt_1/materials/textures/cover8.jpg</uri>/n<name>dirt_8</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='dirt_9'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n <geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<script>/n<uri>model://dirt_1/materials/scripts/dirt_9.material</uri>/n<uri>model://dirt_1/materials/textures/cover9.jpg</uri>/n<name>dirt_9</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='dirt_10'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n <geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<script>/n<uri>model://dirt_1/materials/scripts/dirt_10.material</uri>/n<uri>model://dirt_1/materials/textures/cover10.jpg</uri>/n<name>dirt_10</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><gui fullscreen='0'>
+<model name='dirt_1'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n <geometry><box><size>.4 .4 .001</size></box></geometry>/n<material>/n<script>/n<uri>model://dirt_1/materials/scripts/dirt_1.material</uri>/n<uri>model://dirt_1/materials/textures/cover1.jpg</uri>/n<name>dirt_1</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='dirt_2'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n <geometry><box><size>.4 .4 .001</size></box></geometry>/n<material>/n<script>/n<uri>model://dirt_1/materials/scripts/dirt_2.material</uri>/n<uri>model://dirt_1/materials/textures/cover2.jpg</uri>/n<name>dirt_2</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='dirt_3'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n <geometry><box><size>.4 .4 .001</size></box></geometry>/n<material>/n<script>/n<uri>model://dirt_1/materials/scripts/dirt_3.material</uri>/n<uri>model://dirt_1/materials/textures/cover3.jpg</uri>/n<name>dirt_3</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='dirt_4'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n <geometry><box><size>.4 .4 .001</size></box></geometry>/n<material>/n<script>/n<uri>model://dirt_1/materials/scripts/dirt_4.material</uri>/n<uri>model://dirt_1/materials/textures/cover4.jpg</uri>/n<name>dirt_4</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='dirt_5'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n <geometry><box><size>.4 .4 .001</size></box></geometry>/n<material>/n<script>/n<uri>model://dirt_1/materials/scripts/dirt_5.material</uri>/n<uri>model://dirt_1/materials/textures/cover5.jpg</uri>/n<name>dirt_5</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><gui fullscreen='0'>
 <camera name='user_camera'>
 <pose frame=''>5 -5 2 0 0.275643 2.35619</pose>
 <view_controller>orbit</view_controller>

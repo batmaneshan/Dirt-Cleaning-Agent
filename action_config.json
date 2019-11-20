@@ -1,14 +1,4 @@
 {
-    "pick": { 
-        "function": "execute_pick",
-        "params": ["book_name"],
-        "success_reward": 25,
-        "fail_reward": -25,
-        "possibilities": {
-            "pick": 0.85,
-            "noaction": 0.15
-        }
-    },
     "clean": {
         "function": "execute_clean",
         "params": ["dirt_id"],
@@ -16,16 +6,6 @@
         "fail_reward": -25,
         "possibilities": {
             "clean": 0.85,
-            "noaction": 0.15
-        }
-    },
-    "place": { 
-        "function": "execute_place",
-        "params": ["book_name", "bin_name"],
-        "success_reward": 500,
-        "fail_reward": -25,
-        "possibilities": {
-            "place": 0.85,
             "noaction": 0.15
         }
     },
