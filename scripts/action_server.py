@@ -174,26 +174,31 @@ class RobotActionsServer:
 
     def execute_action(self, req):
         action = req.action_name
+        print action
         params = json.loads(req.action_params)
+        print "34534"
 
         # No operations in terminal state
-        if self.is_terminal_state(self.current_state):
-            return -1, json.dumps(self.current_state)
+       # if self.is_terminal_state(self.current_state):
+        #    return -1, json.dumps(self.current_state)
 
         # Choose an action based on probabilities in action config
-        chosen_action = np.random.choice(self.action_config[action]['possibilities'].keys(), 
-                                         p=self.action_config[action]['possibilities'].values())
+       # chosen_action = np.random.choice(self.action_config[action]['possibilities'].keys(),
+        #                                 p=self.action_config[action]['possibilities'].values())
+        #chosen_action="execute_moveF"
 
-        if chosen_action == "noaction":
-            return self.failure, json.dumps(self.current_state)
+
+        #f chosen_action == "noaction":
+         #   return self.failure, json.dumps(self.current_state)
+        print "as34534"
 
         # generate calling function
-        calling_params = []
-        for param in self.action_config[chosen_action]['params']:
-            calling_params.append("'" + params[param] + "'")
-        calling_params.append("'" + json.dumps(self.current_state) + "'")
-        calling_params.append('True')
-        calling_function = "self.{}({})".format(self.action_config[chosen_action]['function'], ','.join(calling_params))
+       ##for param in self.action_config[chosen_action]['params']:
+         #   calling_params.append("'" + params[param] + "'")
+        #calling_params.append("'" + json.dumps(self.current_state) + "'")
+        #calling_params.append('True')
+        calling_function = "self.{}({})".format("execute_moveF", ','.join("[]"))
+        print calling_function
         success, next_state = eval(calling_function)
         
         # Update state

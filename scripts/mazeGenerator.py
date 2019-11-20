@@ -79,8 +79,8 @@ def add_dirt_description(f_out, coords):
         color=z+1
         f_out.write("<model name='dirt_{0}'>/n".format(z + 1))
         f_out.write("<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n")
-        f_out.write("<gravity>1</gravity>/n<visual name='visual'>/n <geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<script>/n")
-        f_out.write("<uri>model://dirt_1/materials/scripts/dirt_{0}.material</uri>/n<uri>model://dirt_1/materials/textures/cover{0}.jpg</uri>/n<name>dirt_{0}</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><cylinder><radius>0.1</radius><length>.3</length></cylinder></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model>".format(color, x, y))
+        f_out.write("<gravity>1</gravity>/n<visual name='visual'>/n <geometry><box><size>.4 .4 .001</size></box></geometry>/n<material>/n<script>/n")
+        f_out.write("<uri>model://dirt_1/materials/scripts/dirt_{0}.material</uri>/n<uri>model://dirt_1/materials/textures/cover{0}.jpg</uri>/n<name>dirt_{0}</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry><box><size>.4 .4 .001</size></box></geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model>".format(color, x, y))
 
     f_out.write('<gui fullscreen=\'0\'>\n<camera name=\'user_camera\'>\n<pose frame=\'\'>5 -5 2 0 0.275643 2.35619</pose>\n<view_controller>orbit</view_controller>\n<projection_type>perspective</projection_type>\n</camera>\n</gui>\n')
 
@@ -101,9 +101,9 @@ def add_dirt(f_out, x, y, dirt_size_scale, dirtCounter):
 
 def dirt_dict_generator(dirts, dirtCounter, location, coord1, cord2):
     dirts["dirt_" + str(dirtCounter)]["loc"] = location
-    dirts["dirt_" + str(dirtCounter)]["load_loc"] = []
-    dirts["dirt_" + str(dirtCounter)]["load_loc"].append(coord1)
-    dirts["dirt_" + str(dirtCounter)]["load_loc"].append(cord2)
+  #  dirts["dirt_" + str(dirtCounter)]["load_loc"] = []
+   # dirts["dirt_" + str(dirtCounter)]["load_loc"].append(coord1)
+   # dirts["dirt_" + str(dirtCounter)]["load_loc"].append(cord2)
 
 
 def add_bloced_edges(x, y):
@@ -139,28 +139,37 @@ def generate_blocked_edges(grid_dimension, no_of_dirts, seed, root_path, myscale
             x = myscale * np.random.randint(0, (grid_dimension + 1))
 
             y = myscale * np.random.randint(0, (grid_dimension + 1))
+            print x,y
+            print myscale
           #  print x,y
-            flag = np.random.randint(0, 2)
+            flag = 0#np.random.randint(0, 2)
            # print flag
-            if (flag == 0 and ((x + myscale) <= grid_dimension * myscale ) and (
-                    (x, y, x + myscale, y) not in blocked_edges)):
-                blocked_edges.add((x, y, x + myscale, y))
+            if (flag == 0 and ((x + myscale) <= grid_dimension * myscale )and ((y + myscale) <= grid_dimension * myscale )  and (
+                    (x, y) not in blocked_edges)):
+                blocked_edges.add((x, y))
+                blocked_edges.add((x+myscale, y))
+                blocked_edges.add((x - myscale, y))
+                blocked_edges.add((x , y-myscale))
+                blocked_edges.add((x, y + myscale))
+
             #    print '222'
                 offset = np.random.uniform(0, 0.05 * myscale)
-                coords.append((x + myscale / 2 + offset, y))
-                dirt_dict_generator(dirts, dirtCounter, (x + myscale / 2 + offset, y), (x, y), (x + myscale, y))
-                add_dirt(f_out, x + myscale / 2 + offset, y, dirt_size_scale, dirtCounter)
+              #  coords.append((x + myscale / 2 + offset, y))
+                coords.append((x ,y))
+                dirt_dict_generator(dirts, dirtCounter, (x , y), (x, y), (x + myscale, y))
+                add_dirt(f_out, x  , y, dirt_size_scale, dirtCounter)
                 count += 1
 
-            elif (flag == 1 and ((y + myscale) <= grid_dimension * myscale ) and (
-                    (x, y, x, y + myscale) not in blocked_edges)):
-              #  print '2322'
-                blocked_edges.add((x, y, x, y + myscale))
-                offset = np.random.uniform(0, 0.05 * myscale)
-                coords.append((x, y + myscale / 2 - offset))
-                dirt_dict_generator(dirts, dirtCounter, (x, y + myscale / 2 - offset), (x, y), (x, y + myscale))
-                add_dirt(f_out, x, y + myscale / 2 - offset, dirt_size_scale, dirtCounter)
-                count += 1
+#             elif (flag == 1 and ((y + myscale) <= grid_dimension * myscale ) and (
+#                     (x, y) not in blocked_edges)):
+#               #  print '2322'
+#                 blocked_edges.add((x, y)
+# #                offset = np.random.uniform(0, 0.05 * myscale)
+#                # coords.append((x, y + myscale / 2 - offset))
+#                 coords.append((x, y ))
+#                 dirt_dict_generator(dirts, dirtCounter, (x, y + myscale), (x, y), (x, y + myscale))
+#                 add_dirt(f_out, x, y + myscale / 2 - offset, dirt_size_scale, dirtCounter)
+#                 count += 1
 
             else:
                 dirtCounter -= 1
