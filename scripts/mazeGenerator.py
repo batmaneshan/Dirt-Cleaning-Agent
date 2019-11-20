@@ -139,24 +139,23 @@ def generate_blocked_edges(grid_dimension, no_of_dirts, seed, root_path, myscale
             x = myscale * np.random.randint(0, (grid_dimension + 1))
 
             y = myscale * np.random.randint(0, (grid_dimension + 1))
-            print x,y
-            print myscale
+
           #  print x,y
             flag = 0#np.random.randint(0, 2)
            # print flag
             if (flag == 0 and ((x + myscale) <= grid_dimension * myscale )and ((y + myscale) <= grid_dimension * myscale )  and (
                     (x, y) not in blocked_edges)):
                 blocked_edges.add((x, y))
-                blocked_edges.add((x+myscale, y))
-                blocked_edges.add((x - myscale, y))
-                blocked_edges.add((x , y-myscale))
-                blocked_edges.add((x, y + myscale))
+               # blocked_edges.add((x+myscale, y))
+               # blocked_edges.add((x - myscale, y))
+               #
+                #blocked_edges.add((x, y + myscale))
 
             #    print '222'
                 offset = np.random.uniform(0, 0.05 * myscale)
               #  coords.append((x + myscale / 2 + offset, y))
                 coords.append((x ,y))
-                dirt_dict_generator(dirts, dirtCounter, (x , y), (x, y), (x + myscale, y))
+                dirt_dict_generator(dirts, dirtCounter, (2*x , 2*y), (x, y), (x + myscale, y))
                 add_dirt(f_out, x  , y, dirt_size_scale, dirtCounter)
                 count += 1
 
@@ -186,6 +185,7 @@ def generate_blocked_edges(grid_dimension, no_of_dirts, seed, root_path, myscale
         f_out.close()
 
         object_dict["dirts"] = dirts
+        object_dict["grid_size"] = grid_dimension
         with open(root_path + '/objects.json', 'w') as fp:
             json.dump(object_dict, fp)
 
