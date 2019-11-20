@@ -31,11 +31,11 @@ class RandomWalker:
             
             for action in possible_actions:
                 print "Action {}".format(action)
-                if action == "pick": # try to pick book 1
-                    action_params = {"book_name":"book_1"}
-                elif action == "place":
-                    action_params = {"book_name":"book_1", "bin_name":"trolly_2"}
-                elif action == "clean":
+                # if action == "pick": # try to pick book 1
+                #     action_params = {"book_name":"book_1"}
+                # elif action == "place":
+                #     action_params = {"book_name":"book_1", "bin_name":"trolly_2"}
+                if action == "clean":
                     action_params = {"dirt_id":"dirt_1"}
                 else:
                     action_params = {}
@@ -54,11 +54,11 @@ class RandomWalker:
 
             idx = random.randint(0, len(possible_actions) - 1)
             chosen_action = possible_actions[idx]
-            if chosen_action == "pick": # try to pick book 1
-                action_params = {"book_name":"book_1"}
-            elif chosen_action == "place":
-                action_params = {"book_name":"book_1", "bin_name":"trolly_2"}
-            elif chosen_action == "clean":
+            # if chosen_action == "pick": # try to pick book 1
+            #     action_params = {"book_name":"book_1"}
+            # elif chosen_action == "place":
+            #     action_params = {"book_name":"book_1", "bin_name":"trolly_2"}
+            if chosen_action == "clean":
                 action_params = {"dirt_id":"dirt_1"}
             else:
                 action_params = {}

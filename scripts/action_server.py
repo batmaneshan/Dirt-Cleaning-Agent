@@ -201,76 +201,76 @@ class RobotActionsServer:
         return success, json.dumps(next_state)
 
 
-    def execute_place(self, book_name, bin_name, current_state, simulation=False):
-        current_state = json.loads(current_state)
-        robot_state = self.get_turtlebot_location(current_state)
-        next_state = copy.deepcopy(current_state)
-        
-        # check if book is inside basket
-        if book_name != current_state['basket']:
-            self.status_publisher.publish(self.status)
-            return self.failure, current_state
-
-        # Validate book and bin
-        if book_name in self.object_dict["books"] and bin_name in self.object_dict["bins"]:
-            # Robot is at load location of bin
-            if (robot_state[0],robot_state[1]) in self.object_dict["bins"][bin_name]["load_loc"]:
-                # Book size and subject match bin
-                if self.object_dict["books"][book_name]["size"] == self.object_dict["bins"][bin_name]["size"] and \
-                    self.object_dict["books"][book_name]["subject"] == self.object_dict["bins"][bin_name]["subject"]:
-                    
-                    # Update gazebo environment if needed
-                    if simulation:
-                        goal_loc = list(self.object_dict["bins"][bin_name]["loc"])
-                        goal_loc[0] = goal_loc[0] + 0.5
-                        goal_loc[1] = goal_loc[1] + 0.5
-                        self.change_gazebo_state(book_name, goal_loc + [3])
-                        rospy.Rate(1).sleep()
-                        
-                    self.status_publisher.publish(self.status)
-
-                    # Update state
-                    next_state[book_name]['x'] = -1
-                    next_state[book_name]['y'] = -1
-                    next_state[book_name]['placed'] = True
-                    next_state['basket'] = None
-                    
-                    return self.success, next_state
-        
-        self.status_publisher.publish(self.status)
-        return self.failure, next_state
-
-
-    def execute_pick(self, book_name, current_state, simulation=False):
-        current_state = json.loads(current_state)
-        robot_state = self.get_turtlebot_location(current_state)
-        next_state = copy.deepcopy(current_state)
-
-        # Valid book and book isn't already placed
-        if book_name in self.object_dict["books"] and not current_state[book_name]['placed']:
-            # Robot is at the load location for the book
-            if (robot_state[0],robot_state[1]) in self.object_dict["books"][book_name]["load_loc"]:
-                # Basket is empty
-                if current_state['basket'] is None:
-
-                    # Update gazebo environment if needed
-                    if simulation:
-                        self.change_gazebo_state(book_name, list(robot_state[:2])+[2])
-                        rospy.Rate(1).sleep()
-
-                    # Clear the blocked edge in the environment
-                    _ = self.remove_edge(book_name)
-                    self.status_publisher.publish(self.status)
-
-                    # Update state
-                    next_state['basket'] = book_name
-                    next_state[book_name]['x'] = -1
-                    next_state[book_name]['y'] = -1
-
-                    return self.success, next_state
-
-        self.status_publisher.publish(self.status)
-        return self.failure, next_state
+    # def execute_place(self, book_name, bin_name, current_state, simulation=False):
+    #     current_state = json.loads(current_state)
+    #     robot_state = self.get_turtlebot_location(current_state)
+    #     next_state = copy.deepcopy(current_state)
+    #
+    #     # check if book is inside basket
+    #     if book_name != current_state['basket']:
+    #         self.status_publisher.publish(self.status)
+    #         return self.failure, current_state
+    #
+    #     # Validate book and bin
+    #     if book_name in self.object_dict["books"] and bin_name in self.object_dict["bins"]:
+    #         # Robot is at load location of bin
+    #         if (robot_state[0],robot_state[1]) in self.object_dict["bins"][bin_name]["load_loc"]:
+    #             # Book size and subject match bin
+    #             if self.object_dict["books"][book_name]["size"] == self.object_dict["bins"][bin_name]["size"] and \
+    #                 self.object_dict["books"][book_name]["subject"] == self.object_dict["bins"][bin_name]["subject"]:
+    #
+    #                 # Update gazebo environment if needed
+    #                 if simulation:
+    #                     goal_loc = list(self.object_dict["bins"][bin_name]["loc"])
+    #                     goal_loc[0] = goal_loc[0] + 0.5
+    #                     goal_loc[1] = goal_loc[1] + 0.5
+    #                     self.change_gazebo_state(book_name, goal_loc + [3])
+    #                     rospy.Rate(1).sleep()
+    #
+    #                 self.status_publisher.publish(self.status)
+    #
+    #                 # Update state
+    #                 next_state[book_name]['x'] = -1
+    #                 next_state[book_name]['y'] = -1
+    #                 next_state[book_name]['placed'] = True
+    #                 next_state['basket'] = None
+    #
+    #                 return self.success, next_state
+    #
+    #     self.status_publisher.publish(self.status)
+    #     return self.failure, next_state
+    #
+    #
+    # def execute_pick(self, book_name, current_state, simulation=False):
+    #     current_state = json.loads(current_state)
+    #     robot_state = self.get_turtlebot_location(current_state)
+    #     next_state = copy.deepcopy(current_state)
+    #
+    #     # Valid book and book isn't already placed
+    #     if book_name in self.object_dict["books"] and not current_state[book_name]['placed']:
+    #         # Robot is at the load location for the book
+    #         if (robot_state[0],robot_state[1]) in self.object_dict["books"][book_name]["load_loc"]:
+    #             # Basket is empty
+    #             if current_state['basket'] is None:
+    #
+    #                 # Update gazebo environment if needed
+    #                 if simulation:
+    #                     self.change_gazebo_state(book_name, list(robot_state[:2])+[2])
+    #                     rospy.Rate(1).sleep()
+    #
+    #                 # Clear the blocked edge in the environment
+    #                 _ = self.remove_edge(book_name)
+    #                 self.status_publisher.publish(self.status)
+    #
+    #                 # Update state
+    #                 next_state['basket'] = book_name
+    #                 next_state[book_name]['x'] = -1
+    #                 next_state[book_name]['y'] = -1
+    #
+    #                 return self.success, next_state
+    #
+    #     self.status_publisher.publish(self.status)
+    #     return self.failure, next_state
 
     def execute_clean(self, dirt_id, current_state, simulation=False):
         current_state = json.loads(current_state)

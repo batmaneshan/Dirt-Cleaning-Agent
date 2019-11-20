@@ -106,7 +106,7 @@ def dirt_dict_generator(dirts, dirtCounter, location, coord1, cord2):
    # dirts["dirt_" + str(dirtCounter)]["load_loc"].append(cord2)
 
 
-def add_bloced_edges(x, y):
+def add_blocked_edges(x, y):
     blocked_list = []
     x_dec = 0.5
     y_dec = 0.5

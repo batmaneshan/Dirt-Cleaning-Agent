@@ -46,21 +46,21 @@ def handle_reset_world(req):
 	return 1
 
 
-def remove_blocked_edge(req):
-	bookname = req.bookname
-	global books
-	global mazeInfo
-	location_of_blocked_edge_list = books["books"][bookname]["load_loc"]
-	if location_of_blocked_edge_list[0][0] <= location_of_blocked_edge_list[1][0] and location_of_blocked_edge_list[0][1] <= location_of_blocked_edge_list[1][1]:
-		blocked_edge = (location_of_blocked_edge_list[0][0], location_of_blocked_edge_list[0][1], location_of_blocked_edge_list[1][0], location_of_blocked_edge_list[1][1])
-	else:
-		blocked_edge = (location_of_blocked_edge_list[1][0], location_of_blocked_edge_list[1][1], location_of_blocked_edge_list[0][0], location_of_blocked_edge_list[0][1])
-	mazeInfo.blocked_edges.remove(blocked_edge)
-	return "1"
+# def remove_blocked_edge(req):
+# 	bookname = req.bookname
+# 	global books
+# 	global mazeInfo
+# 	location_of_blocked_edge_list = books["books"][bookname]["load_loc"]
+# 	if location_of_blocked_edge_list[0][0] <= location_of_blocked_edge_list[1][0] and location_of_blocked_edge_list[0][1] <= location_of_blocked_edge_list[1][1]:
+# 		blocked_edge = (location_of_blocked_edge_list[0][0], location_of_blocked_edge_list[0][1], location_of_blocked_edge_list[1][0], location_of_blocked_edge_list[1][1])
+# 	else:
+# 		blocked_edge = (location_of_blocked_edge_list[1][0], location_of_blocked_edge_list[1][1], location_of_blocked_edge_list[0][0], location_of_blocked_edge_list[0][1])
+# 	mazeInfo.blocked_edges.remove(blocked_edge)
+# 	return "1"
 
 
 def server():
-	rospy.Service('remove_blocked_edge', RemoveBlockedEdgeMsg,remove_blocked_edge)
+	# rospy.Service('remove_blocked_edge', RemoveBlockedEdgeMsg,remove_blocked_edge)
 	rospy.Service('check_is_edge',CheckEdge,check_is_edge)
 	rospy.Service('reset_world',ResetWorldMsg,handle_reset_world)
 	print "Ready!"
