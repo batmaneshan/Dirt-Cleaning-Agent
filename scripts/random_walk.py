@@ -211,7 +211,7 @@ class RandomWalker:
                 # follow the policy and execute the best action from current state
                 bot_current_location_row, bot_current_location_col = bot_current_location
                 # best_action = policy[bot_current_location_row][bot_current_location_col]
-                best_action = random.randint(1,5)
+                best_action = random.randint(1,4)
                 isSuccess, next_state = self.execute_action(bot_current_location, best_action)
                 print("taking action ", self.index_to_action_mapping[best_action], "next cell: ",next_state)
 
