@@ -4,9 +4,10 @@
 import numpy as np
 import json
 import random
+import environment_api as api 
 
 class PolicyGenerator:
-    def __init__(self, grid_dimension, dirt_locations):
+    def __init__(self, grid_dimension, dirt_locations, dirt_location_to_id_mapping):
         actions = {}
         action_list = ["UP", "DOWN", "LEFT", "RIGHT", "CLEAN"]
         for action in action_list:
@@ -34,6 +35,25 @@ class PolicyGenerator:
         self.reward_for_cleaning_a_dirt = 25
         self.count_of_dirty_cells = len(dirt_locations)
         self.gamma = 0.7
+        
+        self.orientation_to_action_mapping = {}
+        self.orientation_to_action_mapping["NORTH_UP"] = ["MoveF"]
+        self.orientation_to_action_mapping["SOUTH_UP"] = ["TurnCW", "TurnCW", "MoveF"]
+        self.orientation_to_action_mapping["EAST_UP"] = ["TurnCCW","MoveF"]
+        self.orientation_to_action_mapping["WEST_UP"] = ["TurnCW","MoveF"]
+        self.orientation_to_action_mapping["NORTH_DOWN"] = ["TurnCW", "TurnCW", "MoveF"]
+        self.orientation_to_action_mapping["SOUTH_DOWN"] = ["MoveF"]
+        self.orientation_to_action_mapping["EAST_DOWN"] = ["TurnCW","MoveF"]
+        self.orientation_to_action_mapping["WEST_DOWN"] = ["TurnCCW","MoveF"]
+        self.orientation_to_action_mapping["NORTH_LEFT"] = ["TurnCCW","MoveF"]
+        self.orientation_to_action_mapping["SOUTH_LEFT"] = ["TurnCW","MoveF"]
+        self.orientation_to_action_mapping["EAST_LEFT"] = ["TurnCW", "TurnCW", "MoveF"]
+        self.orientation_to_action_mapping["WEST_LEFT"] = ["MoveF"]
+        self.orientation_to_action_mapping["NORTH_RIGHT"] = ["TurnCW","MoveF"]
+        self.orientation_to_action_mapping["SOUTH_RIGHT"] = ["TurnCCW","MoveF"]
+        self.orientation_to_action_mapping["EAST_RIGHT"] = ["MoveF"]
+        self.orientation_to_action_mapping["WEST_RIGHT"] = ["TurnCCW","TurnCCW", "MoveF"]
+        self.dirt_location_to_id_mapping = dirt_location_to_id_mapping
         self.main()
 
     def generate_reward_metric(self):
@@ -62,18 +82,33 @@ class PolicyGenerator:
             if(next_col >= self.grid_dimension ):
                 next_col-=1
         return next_row, next_col
+    
+    def raw_execute_action(self, list_of_actions_to_execute, bot_location):
+        for action in list_of_actions_to_execute:
+            actions = {}
+            actions["action_name"] = action
+            actions["action_params"] = []
+            if(action == "CLEAN"):
+                actions["action_params"].append(self.dirt_location_to_id_mapping[bot_location])
+            temp , next_state = api.execute_action(actions["action_name"], actions["action_params"])
+        return next_state
 
-    def execute_action(self, bot_location, action):
-        #action is a number 
+    def execute_action(self, bot_location, bot_orientation, action):
+        # action is a number 
         action = self.index_to_action_mapping[action]
-        
+        if(action == "CLEAN"):
+            list_of_actions_to_execute = ["CLEAN"]
+        else:
+            list_of_actions_to_execute = self.orientation_to_action_mapping[bot_orientation + "_" + action]
+
         random_number = random.random()
         possibilities = self.actions[action]["ActionProbabilities"]
         cumulative_value = 0
         for possibility in possibilities.keys():
             cumulative_value += possibilities[possibility]
             if(random_number <= cumulative_value):
-                return True, self.get_next_cell_on_action(bot_location, possibility)
+                # return True, self.get_next_cell_on_action(bot_location, possibility)
+                return True, self.raw_execute_action(list_of_actions_to_execute, bot_location)
 
     def get_max_over_all_actions(self, row, col, V_Values):
         maximum_V = -1
@@ -180,14 +215,15 @@ class PolicyGenerator:
         
         print("initial policy")
         print(policy)
-
-        bot_current_location = (0,0)
+        bot_current_state = api.get_current_state()
+        bot_current_location, bot_current_orientation = (bot_current_state["robot"]["x"], bot_current_state["robot"]["y"]), bot_current_state["robot"]["orientation"]
         total_steps_of_cleaning_entire_grid = 0
         
         while(self.count_of_dirty_cells > 0):
             # get bot's location from helper function
             if(bot_current_location in self.dirt_locations):
-                isSuccess, next_state = self.execute_action(bot_current_location, 5)
+                isSuccess, next_bot_state = self.execute_action(bot_current_location, bot_current_orientation, 5)
+                next_state, next_orientation = (next_bot_state["robot"]["x"], next_bot_state["robot"]["y"]), next_bot_state["robot"]["orientation"]
                 if(isSuccess == True):
                     print("taking action ", self.index_to_action_mapping[5], "next cell: ",next_state)
                     self.count_of_dirty_cells = self.count_of_dirty_cells - 1
@@ -207,13 +243,16 @@ class PolicyGenerator:
                 # follow the policy and execute the best action from current state
                 bot_current_location_row, bot_current_location_col = bot_current_location
                 best_action = policy[bot_current_location_row][bot_current_location_col]
-                isSuccess, next_state = self.execute_action(bot_current_location, best_action)
+                isSuccess, next_bot_state = self.execute_action(bot_current_location, bot_current_orientation, best_action)
+                next_state, next_orientation = (next_bot_state["robot"]["x"], next_bot_state["robot"]["y"]), next_bot_state["robot"]["orientation"]
+                
                 print("taking action ", self.index_to_action_mapping[best_action], "next cell: ",next_state)
 
             total_steps_of_cleaning_entire_grid = total_steps_of_cleaning_entire_grid + 1
             print("step number : " + str(total_steps_of_cleaning_entire_grid))
             print("count of dirty cells "+ str(self.count_of_dirty_cells))
             bot_current_location = next_state
+            bot_current_orientation = next_orientation
             
         print("total_steps: " + str(total_steps_of_cleaning_entire_grid))
        
@@ -222,12 +261,13 @@ if __name__ == "__main__":
     json_file = open('../objects.json')
     data = json.load(json_file)
     grid_dimension = data["grid_size"]
-
+    dirt_location_to_id_mapping = {}
     dirts = data["dirts"]
     dirt_locations = []
     for dirt in dirts.keys():
         dirt_loc = dirts[dirt]["loc"]
         dirt_loc = int(dirt_loc[0]),int(dirt_loc[1])
+        dirt_location_to_id_mapping[dirt_loc] = dirt
         dirt_locations.append(dirt_loc)
     
-    PolicyGenerator(grid_dimension, dirt_locations)
+    PolicyGenerator(grid_dimension, dirt_locations, dirt_location_to_id_mapping)
