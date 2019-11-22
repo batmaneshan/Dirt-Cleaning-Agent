@@ -90,7 +90,7 @@ class PolicyGenerator:
             actions["action_params"] = []
             if(action == "CLEAN"):
                 actions["action_params"].append(self.dirt_location_to_id_mapping[bot_location])
-            temp , next_state = api.execute_action(actions)
+            temp , next_state = api.execute_action(actions["action_name"], actions["action_params"])
         return next_state
 
     def execute_action(self, bot_location, bot_orientation, action):
@@ -216,14 +216,14 @@ class PolicyGenerator:
         print("initial policy")
         print(policy)
         bot_current_state = api.get_current_state()
-        bot_current_location, bot_current_orientation = (bot_current_state["x"], bot_current_state["y"]), bot_current_state["direction"]
+        bot_current_location, bot_current_orientation = (bot_current_state["robot"]["x"], bot_current_state["robot"]["y"]), bot_current_state["robot"]["orientation"]
         total_steps_of_cleaning_entire_grid = 0
         
         while(self.count_of_dirty_cells > 0):
             # get bot's location from helper function
             if(bot_current_location in self.dirt_locations):
                 isSuccess, next_bot_state = self.execute_action(bot_current_location, bot_current_orientation, 5)
-                next_state, next_orientation = (next_bot_state["x"], next_bot_state["y"]), next_bot_state["direction"]
+                next_state, next_orientation = (next_bot_state["robot"]["x"], next_bot_state["robot"]["y"]), next_bot_state["robot"]["orientation"]
                 if(isSuccess == True):
                     print("taking action ", self.index_to_action_mapping[5], "next cell: ",next_state)
                     self.count_of_dirty_cells = self.count_of_dirty_cells - 1
@@ -244,7 +244,7 @@ class PolicyGenerator:
                 bot_current_location_row, bot_current_location_col = bot_current_location
                 best_action = policy[bot_current_location_row][bot_current_location_col]
                 isSuccess, next_bot_state = self.execute_action(bot_current_location, bot_current_orientation, best_action)
-                next_state, next_orientation = (next_bot_state["x"], next_bot_state["y"]), next_bot_state["direction"]
+                next_state, next_orientation = (next_bot_state["robot"]["x"], next_bot_state["robot"]["y"]), next_bot_state["robot"]["orientation"]
                 
                 print("taking action ", self.index_to_action_mapping[best_action], "next cell: ",next_state)
 
