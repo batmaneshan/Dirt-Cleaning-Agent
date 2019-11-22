@@ -1,15 +1,11 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-import heapq
-import environment_api as api 
-import rospy
-from std_msgs.msg import String
 import numpy as np
-import random
 import json
-class RandomWalker:
+import random
 
+class PolicyGenerator:
     def __init__(self, grid_dimension, dirt_locations):
         actions = {}
         action_list = ["UP", "DOWN", "LEFT", "RIGHT", "CLEAN"]
@@ -179,11 +175,11 @@ class RandomWalker:
         print("initial dirt locations")
         print(self.dirt_locations)
         print("initial count of dirty cells "+ str(self.count_of_dirty_cells))
-        # V_Values = np.zeros((self.grid_dimension, self.grid_dimension))
-        # Updated_V_Values, policy = self.Value_Iteration(V_Values)
+        V_Values = np.zeros((self.grid_dimension, self.grid_dimension))
+        Updated_V_Values, policy = self.Value_Iteration(V_Values)
         
-        # print("initial policy")
-        # print(policy)
+        print("initial policy")
+        print(policy)
 
         bot_current_location = (0,0)
         total_steps_of_cleaning_entire_grid = 0
@@ -199,7 +195,7 @@ class RandomWalker:
                     if(self.count_of_dirty_cells <= 0):
                         total_steps_of_cleaning_entire_grid = total_steps_of_cleaning_entire_grid + 1
                         break
-                    # policy, Updated_V_Values = self.Policy_Iteration(Updated_V_Values, policy)
+                    policy, Updated_V_Values = self.Policy_Iteration(Updated_V_Values, policy)
                     # print("updated policy")
                     # print(policy)
                     # print("updated v values")
@@ -210,8 +206,7 @@ class RandomWalker:
             else:
                 # follow the policy and execute the best action from current state
                 bot_current_location_row, bot_current_location_col = bot_current_location
-                # best_action = policy[bot_current_location_row][bot_current_location_col]
-                best_action = random.randint(1,5)
+                best_action = policy[bot_current_location_row][bot_current_location_col]
                 isSuccess, next_state = self.execute_action(bot_current_location, best_action)
                 print("taking action ", self.index_to_action_mapping[best_action], "next cell: ",next_state)
 
@@ -221,8 +216,9 @@ class RandomWalker:
             bot_current_location = next_state
             
         print("total_steps: " + str(total_steps_of_cleaning_entire_grid))
-
+       
 if __name__ == "__main__":
+    
     json_file = open('../objects.json')
     data = json.load(json_file)
     grid_dimension = data["grid_size"]
@@ -234,4 +230,4 @@ if __name__ == "__main__":
         dirt_loc = int(dirt_loc[0]),int(dirt_loc[1])
         dirt_locations.append(dirt_loc)
     
-    RandomWalker(grid_dimension, dirt_locations)
+    PolicyGenerator(grid_dimension, dirt_locations)
