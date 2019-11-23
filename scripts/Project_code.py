@@ -4,7 +4,8 @@
 import numpy as np
 import json
 import random
-import environment_api as api 
+import environment_api as api
+import os
 
 class PolicyGenerator:
     def __init__(self, grid_dimension, dirt_locations, dirt_location_to_id_mapping):
@@ -37,22 +38,22 @@ class PolicyGenerator:
         self.gamma = 0.7
         
         self.orientation_to_action_mapping = {}
-        self.orientation_to_action_mapping["NORTH_UP"] = ["MoveF"]
-        self.orientation_to_action_mapping["SOUTH_UP"] = ["TurnCW", "TurnCW", "MoveF"]
-        self.orientation_to_action_mapping["EAST_UP"] = ["TurnCCW","MoveF"]
-        self.orientation_to_action_mapping["WEST_UP"] = ["TurnCW","MoveF"]
-        self.orientation_to_action_mapping["NORTH_DOWN"] = ["TurnCW", "TurnCW", "MoveF"]
-        self.orientation_to_action_mapping["SOUTH_DOWN"] = ["MoveF"]
-        self.orientation_to_action_mapping["EAST_DOWN"] = ["TurnCW","MoveF"]
-        self.orientation_to_action_mapping["WEST_DOWN"] = ["TurnCCW","MoveF"]
-        self.orientation_to_action_mapping["NORTH_LEFT"] = ["TurnCCW","MoveF"]
-        self.orientation_to_action_mapping["SOUTH_LEFT"] = ["TurnCW","MoveF"]
-        self.orientation_to_action_mapping["EAST_LEFT"] = ["TurnCW", "TurnCW", "MoveF"]
-        self.orientation_to_action_mapping["WEST_LEFT"] = ["MoveF"]
-        self.orientation_to_action_mapping["NORTH_RIGHT"] = ["TurnCW","MoveF"]
-        self.orientation_to_action_mapping["SOUTH_RIGHT"] = ["TurnCCW","MoveF"]
-        self.orientation_to_action_mapping["EAST_RIGHT"] = ["MoveF"]
-        self.orientation_to_action_mapping["WEST_RIGHT"] = ["TurnCCW","TurnCCW", "MoveF"]
+        self.orientation_to_action_mapping["NORTH_UP"] = ["TurnCCW","moveF"]
+        self.orientation_to_action_mapping["SOUTH_UP"] = ["TurnCW", "moveF"]
+        self.orientation_to_action_mapping["EAST_UP"] = ["TurnCW", "TurnCW", "moveF"]
+        self.orientation_to_action_mapping["WEST_UP"] = ["moveF"]
+        self.orientation_to_action_mapping["NORTH_DOWN"] = ["TurnCW", "moveF"]
+        self.orientation_to_action_mapping["SOUTH_DOWN"] = ["TurnCCW","moveF"]
+        self.orientation_to_action_mapping["EAST_DOWN"] = ["moveF"]
+        self.orientation_to_action_mapping["WEST_DOWN"] = ["TurnCW", "TurnCW", "moveF"]
+        self.orientation_to_action_mapping["NORTH_LEFT"] = ["TurnCW", "TurnCW", "moveF"]
+        self.orientation_to_action_mapping["SOUTH_LEFT"] = ["moveF"]
+        self.orientation_to_action_mapping["EAST_LEFT"] = ["TurnCW","moveF"]
+        self.orientation_to_action_mapping["WEST_LEFT"] = ["TurnCCW","moveF"]
+        self.orientation_to_action_mapping["NORTH_RIGHT"] = ["moveF"]
+        self.orientation_to_action_mapping["SOUTH_RIGHT"] = ["TurnCW", "TurnCW", "moveF"]
+        self.orientation_to_action_mapping["EAST_RIGHT"] = ["TurnCCW","moveF"]
+        self.orientation_to_action_mapping["WEST_RIGHT"] = ["TurnCW","moveF"]
         self.dirt_location_to_id_mapping = dirt_location_to_id_mapping
         self.main()
 
@@ -87,9 +88,11 @@ class PolicyGenerator:
         for action in list_of_actions_to_execute:
             actions = {}
             actions["action_name"] = action
-            actions["action_params"] = []
+            actions["action_params"] = {}
             if(action == "CLEAN"):
-                actions["action_params"].append(self.dirt_location_to_id_mapping[bot_location])
+                actions["action_name"] = "clean"
+                actions["action_params"]["dirt_id"] = str(self.dirt_location_to_id_mapping[bot_location])
+            print(actions)
             temp , next_state = api.execute_action(actions["action_name"], actions["action_params"])
         return next_state
 
@@ -242,7 +245,7 @@ class PolicyGenerator:
             else:
                 # follow the policy and execute the best action from current state
                 bot_current_location_row, bot_current_location_col = bot_current_location
-                best_action = policy[bot_current_location_row][bot_current_location_col]
+                best_action = policy[int(bot_current_location_row)][int(bot_current_location_col)]
                 isSuccess, next_bot_state = self.execute_action(bot_current_location, bot_current_orientation, best_action)
                 next_state, next_orientation = (next_bot_state["robot"]["x"], next_bot_state["robot"]["y"]), next_bot_state["robot"]["orientation"]
                 
@@ -257,10 +260,10 @@ class PolicyGenerator:
         print("total_steps: " + str(total_steps_of_cleaning_entire_grid))
        
 if __name__ == "__main__":
-    
-    json_file = open('../objects.json')
+    root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
+    json_file = open(root_path+'/objects.json')
     data = json.load(json_file)
-    grid_dimension = data["grid_size"]
+    grid_dimension = data["grid_size"] + 1
     dirt_location_to_id_mapping = {}
     dirts = data["dirts"]
     dirt_locations = []
@@ -269,5 +272,7 @@ if __name__ == "__main__":
         dirt_loc = int(dirt_loc[0]),int(dirt_loc[1])
         dirt_location_to_id_mapping[dirt_loc] = dirt
         dirt_locations.append(dirt_loc)
+
+    print(dirt_location_to_id_mapping)
     
     PolicyGenerator(grid_dimension, dirt_locations, dirt_location_to_id_mapping)

@@ -177,8 +177,8 @@ class RobotActionsServer:
         params = json.loads(req.action_params)
 
         # No operations in terminal state
-        if self.is_terminal_state(self.current_state):
-            return -1, json.dumps(self.current_state)
+        # if self.is_terminal_state(self.current_state):
+        #     return -1, json.dumps(self.current_state)
 
         # Choose an action based on probabilities in action config
         chosen_action = np.random.choice(self.action_config[action]['possibilities'].keys(),
@@ -278,20 +278,21 @@ class RobotActionsServer:
         next_state = copy.deepcopy(current_state)
 
         # Valid dirt and dirt isn't already cleaned
-        if dirt_id in self.object_dict["books"] and not current_state[dirt_id]['cleaned']:
+        if dirt_id in self.object_dict["dirts"]:
             # Robot is at the load location for the book
-            if (robot_state[0], robot_state[1]) in self.object_dict["dirts"][dirt_id]["load_loc"]:
+            if [robot_state[0], robot_state[1]] == self.object_dict["dirts"][dirt_id]["loc"]:
                 # Update gazebo environment if needed
                 if simulation:
-                    self.change_gazebo_state(dirt_id, list([-0.5, -0.5, 0.5]))
+                    self.change_gazebo_state(dirt_id, list([-5, -5, 0.5]))
                     rospy.Rate(1).sleep()
 
                 # Clear the blocked edge in the environment
                 self.status_publisher.publish(self.status)
 
                 # Update state
-                next_state[dirt_id]['x'] = -0.5
-                next_state[dirt_id]['y'] = -0.5
+                next_state[dirt_id]['x'] = -5
+                next_state[dirt_id]['y'] = -5
+                # next_state[dirt_id]['cleaned'] = True
 
                 return self.success, next_state
 
@@ -307,34 +308,30 @@ class RobotActionsServer:
 
         # Get new location
         if "EAST" in robot_state[2]:
-            x2 = x1 + 0.5
+            x2 = x1 + 1
             y2 = y1
         elif "WEST" in robot_state[2]:
-            x2 = x1 - 0.5
+            x2 = x1 - 1
             y2 = y1
         elif "NORTH" in robot_state[2]:
             x2 = x1
-            y2 = y1 + 0.5
+            y2 = y1 + 1
         else:
             x2 = x1
-            y2 = y1 - 0.5
+            y2 = y1 - 1
 
-        # Check if that edge isn't blocked
-        if self.check_edge(x1,y1,x2,y2):
-            action_str = "MoveF"
+        action_str = "MoveF"
 
-            # Make bot move if simulating in gazebo
-            if simulation:
-                self.action_publisher.publish(String(data=action_str))
-                rospy.wait_for_message("/status",String)
-            
-            # Update State
-            next_state['robot']['x'] = x2
-            next_state['robot']['y'] = y2
+        # Make bot move if simulating in gazebo
+        if simulation:
+            self.action_publisher.publish(String(data=action_str))
+            rospy.wait_for_message("/status", String)
 
-            return self.success, next_state
-        else:
-            return self.failure, next_state
+        # Update State
+        next_state['robot']['x'] = x2
+        next_state['robot']['y'] = y2
+
+        return self.success, next_state
 
 
     def execute_TurnCW(self, current_state, simulation=False):
