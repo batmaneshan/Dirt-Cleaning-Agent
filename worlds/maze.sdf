@@ -139,31 +139,31 @@
 </link>
 </model>
 <model name='dirt_1'>
-<pose frame=''>0.0 1.5 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>1.5 0.5 -0.000405 -1e-06 1e-06 0</pose>
 <scale>1 1 1</scale>
 <link name='cover'>
-<pose frame=''>0.0 1.499892 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>1.5 0.499892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>0.0 1.500608 0.015 0 1e-06 0</pose>
+<pose frame=''>1.5 0.500608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='dirt_2'>
-<pose frame=''>1.5 1.0 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>1.0 1.5 -0.000405 -1e-06 1e-06 0</pose>
 <scale>1 1 1</scale>
 <link name='cover'>
-<pose frame=''>1.5 0.999892 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>1.0 1.499892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>1.5 1.000608 0.015 0 1e-06 0</pose>
+<pose frame=''>1.0 1.500608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
