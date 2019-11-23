@@ -6,13 +6,6 @@ from std_msgs.msg import String
 import json
 
 def get_current_state():
-    """
-    This function calls get_initial_state service to recive the initial state of the turtlebot.
-
-    return:  x_cord - initial x-cordinate of turtlebot           
-             y_cord - initial y-cordinate of turtlebot
-             direction - initial orientation
-    """
     rospy.wait_for_service('get_current_state')
     try:
         get_initial_state = rospy.ServiceProxy('get_current_state', GetInitialState)
@@ -42,12 +35,6 @@ def reset_world():
 
 
 def get_all_actions():
-    """
-    This function calls is_goal_state service to check if the current state is the goal state or not.
-
-    parameters:  x_cord - current x-cordinate of turtlebot           return:   1 : if current state is the goal state
-                 y_cord - current y-cordinate of turtlebot                     0 : if current state is not the goal state
-    """
     rospy.wait_for_service('get_all_actions')
     try:
         all_actions = rospy.ServiceProxy('get_all_actions', GetActions)

@@ -73,29 +73,6 @@ class RobotActionsServer:
         model_state_msg.pose.position.z = target_transform[2]
         self.model_state_publisher.publish(model_state_msg)
 
-
-    def remove_edge(self, book_name):
-        rospy.wait_for_service('remove_blocked_edge')
-        try:
-            remove_edge = rospy.ServiceProxy('remove_blocked_edge',RemoveBlockedEdgeMsg)
-            _ = remove_edge(book_name)
-        except rospy.ServiceException,e:
-            print "Sevice call failed: %s"%e
-
-
-    def check_edge(self, x1, y1, x2, y2):
-        rospy.wait_for_service('check_is_edge')
-        try:
-            check_is_edge = rospy.ServiceProxy('check_is_edge',CheckEdge)
-            if x1 <= x2 and y1 <= y2:
-                result = check_is_edge(x1,y1,x2,y2)
-            else:
-                result = check_is_edge(x2,y2,x1,y1)
-            return result.value == 1
-        except rospy.ServiceException,e:
-            print "Sevice call failed: %s"%e
-
-
     def is_terminal_state_handler(self, req):
         state = json.loads(req.state)
         return self.is_terminal_state(state)
