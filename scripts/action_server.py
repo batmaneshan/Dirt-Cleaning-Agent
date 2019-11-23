@@ -280,7 +280,10 @@ class RobotActionsServer:
         # Valid dirt and dirt isn't already cleaned
         if dirt_id in self.object_dict["dirts"]:
             # Robot is at the load location for the book
-            if [robot_state[0], robot_state[1]] == self.object_dict["dirts"][dirt_id]["loc"]:
+            dLoc=self.object_dict["dirts"][dirt_id]["loc"]
+            if robot_state[0]==dLoc[0] and robot_state[1]==dLoc[1]:
+               # print "******lklklkllklk****"
+
                 # Update gazebo environment if needed
                 if simulation:
                     self.change_gazebo_state(dirt_id, list([-5, -5, 0.5]))
