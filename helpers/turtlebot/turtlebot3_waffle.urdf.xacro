@@ -252,14 +252,20 @@
     <visual>
      <origin xyz="-0.15 -0.15 0.007" rpy="0 0 0"/>
      <geometry>
-       <mesh filename="package://turtlebot3_description/meshes/basket/basket.dae" scale="1 1 0.5"/>
+    <cylinder>
+    <radius>0.0001</radius>
+    <length>0.0001</length>
+ </cylinder>
      </geometry>
     </visual>
 
    <collision>
       <origin xyz="-0.15 -0.15 0.007" rpy="0 0 0"/>
      <geometry>
-       <mesh filename="package://turtlebot3_description/meshes/basket/basket.dae" scale="1 1 0.5"/>
+      <cylinder>
+    <radius>0.0001</radius>
+    <length>0.0001</length>
+ </cylinder>
      </geometry>
       <surface>
         <friction>
