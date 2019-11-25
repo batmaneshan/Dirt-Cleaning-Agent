@@ -263,7 +263,7 @@ if __name__ == "__main__":
     root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
     json_file = open(root_path+'/objects.json')
     data = json.load(json_file)
-    grid_dimension = data["grid_size"] + 1
+    grid_dimension = data["grid_size"]
     dirt_location_to_id_mapping = {}
     dirts = data["dirts"]
     dirt_locations = []
