@@ -92,7 +92,6 @@ class PolicyGenerator:
             if(action == "CLEAN"):
                 actions["action_name"] = "clean"
                 actions["action_params"]["dirt_id"] = str(self.dirt_location_to_id_mapping[bot_location])
-            print(actions)
             temp , next_state = api.execute_action(actions["action_name"], actions["action_params"])
         return next_state
 
@@ -207,17 +206,27 @@ class PolicyGenerator:
                 break
         return policy, initial_V_Values
     
+    def printPolicy(self, policy):
+        policy_with_actions = []
+        for i in range(self.grid_dimension):
+            temp = []
+            for j in range(self.grid_dimension):
+                temp.append(self.index_to_action_mapping[policy[i][j]])
+            policy_with_actions.append(temp)
+        print("")
+        for i in range(self.grid_dimension):
+            print(policy_with_actions[i])
+        print("")
     def main(self):
 
-        # compute a policy based on the initial configuration 
-        print("initial dirt locations")
+        print("**Dirt locations**")
         print(self.dirt_locations)
-        print("initial count of dirty cells "+ str(self.count_of_dirty_cells))
+        print("**Count of dirty cells: "+ str(self.count_of_dirty_cells) + " **")
         V_Values = np.zeros((self.grid_dimension, self.grid_dimension))
         Updated_V_Values, policy = self.Value_Iteration(V_Values)
         
-        print("initial policy")
-        print(policy)
+        print("**Initial Policy Computed**\n")
+        self.printPolicy(policy)
         bot_current_state = api.get_current_state()
         bot_current_location, bot_current_orientation = (bot_current_state["robot"]["x"], bot_current_state["robot"]["y"]), bot_current_state["robot"]["orientation"]
         total_steps_of_cleaning_entire_grid = 0
@@ -228,19 +237,17 @@ class PolicyGenerator:
                 isSuccess, next_bot_state = self.execute_action(bot_current_location, bot_current_orientation, 5)
                 next_state, next_orientation = (next_bot_state["robot"]["x"], next_bot_state["robot"]["y"]), next_bot_state["robot"]["orientation"]
                 if(isSuccess == True):
-                    print("taking action ", self.index_to_action_mapping[5], "next cell: ",next_state)
+                    print("**Taking action ", self.index_to_action_mapping[5], "next cell: ",next_state)
                     self.count_of_dirty_cells = self.count_of_dirty_cells - 1
                     self.dirt_locations.remove(bot_current_location)
                     if(self.count_of_dirty_cells <= 0):
                         total_steps_of_cleaning_entire_grid = total_steps_of_cleaning_entire_grid + 1
                         break
                     policy, Updated_V_Values = self.Policy_Iteration(Updated_V_Values, policy)
-                    # print("updated policy")
-                    # print(policy)
-                    # print("updated v values")
-                    # print(Updated_V_Values)
+                    print("**Policy Updated**")
+                    self.printPolicy(policy)
                 else:
-                    print("ERROR")
+                    print("**ERROR with ROS connection!!!**")
                     return
             else:
                 # follow the policy and execute the best action from current state
@@ -249,15 +256,15 @@ class PolicyGenerator:
                 isSuccess, next_bot_state = self.execute_action(bot_current_location, bot_current_orientation, best_action)
                 next_state, next_orientation = (next_bot_state["robot"]["x"], next_bot_state["robot"]["y"]), next_bot_state["robot"]["orientation"]
                 
-                print("taking action ", self.index_to_action_mapping[best_action], "next cell: ",next_state)
+                print("**Taking action ", self.index_to_action_mapping[best_action], "next cell: ",next_state)
 
             total_steps_of_cleaning_entire_grid = total_steps_of_cleaning_entire_grid + 1
-            print("step number : " + str(total_steps_of_cleaning_entire_grid))
-            print("count of dirty cells "+ str(self.count_of_dirty_cells))
+            print("**Step number : " + str(total_steps_of_cleaning_entire_grid))
+            print("**Number of dirty cells remaining: "+ str(self.count_of_dirty_cells))
             bot_current_location = next_state
             bot_current_orientation = next_orientation
             
-        print("total_steps: " + str(total_steps_of_cleaning_entire_grid))
+        print("**Total steps taken to clean the grid: " + str(total_steps_of_cleaning_entire_grid))
        
 if __name__ == "__main__":
     root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
@@ -273,6 +280,4 @@ if __name__ == "__main__":
         dirt_location_to_id_mapping[dirt_loc] = dirt
         dirt_locations.append(dirt_loc)
 
-    print(dirt_location_to_id_mapping)
-    
     PolicyGenerator(grid_dimension, dirt_locations, dirt_location_to_id_mapping)

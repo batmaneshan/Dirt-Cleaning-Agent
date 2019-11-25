@@ -71,26 +71,14 @@ if __name__ == "__main__":
 	args = parser.parse_args()
 	n_dirts=args.n_dirts
 	n_size = args.n_size
+	if(n_dirts > n_size*n_size):
+		print("Invalid Arguments!!!")
+		print("Number of dirt locations can't be more than the number of cells in the grid.")
+	else:
+		seed = args.seed
+		print "Starting server with GridSize: {0} and no of dirts: {1}".format(n_size,n_dirts)
 
-	seed = args.seed
-	print "Starting server with GridSize:{0} and no of dirts:{1}".format(n_size,n_dirts)
-
-	#print "n_subjectes: ", n_subjects
-	#print "n_books:", n_books
-	#print("n_dirts:", n_dirts)
-	#if n_subjects > 20:
-	##	exit()
-	#book_sizes = 2
-	#book_count_of_each_subject = n_books * book_sizes
-	#book_count_list = [n_books] * n_subjects * book_sizes
-	#number_of_trollies = n_subjects * 2
-	# grid_size = max((((book_count_of_each_subject * n_subjects) / 4) // 1 ) + 1, ((number_of_trollies/4)*7), 10)
-	#grid_size = 6 * n_subjects
-	#mazeInfo = Maze(grid_size, 0.5)
-#	books = mazeInfo.generate_blocked_edges(book_count_list, seed,  number_of_trollies, root_path)
-#	mazeInfoCopy = copy.deepcopy(mazeInfo)
-#	print "blocked_edges: ", mazeInfo.blocked_edges
-	dirts, mazeInfo = generate_blocked_edges(n_size, n_dirts, seed, root_path, 0.5)
-	rospy.init_node('server')
-	robot_action_server = RobotActionsServer(dirts, root_path, args.action_seed)
-	server()
+		dirts, mazeInfo = generate_blocked_edges(n_size, n_dirts, seed, root_path, 0.5)
+		rospy.init_node('server')
+		robot_action_server = RobotActionsServer(dirts, root_path, args.action_seed)
+		server()
