@@ -2,11 +2,11 @@ Clone this repository in your ~/catkin_ws/src folder
 
 Rename the directory to cse571_project
 
+Get the permissions:
 chmod u+x ~/catkin_ws/src/cse571_project/scripts/*.py
-
 chmod u+x ~/catkin_ws/src/cse571_project/env_setup.sh && ~/catkin_ws/src/cse571_project/env_setup.sh
 
-To test:
+To move the bot according to policy:
 1. Run `roscore`
 2. Run `rosrun cse571_project server.py -d 5 -s 6`
 3. Run `roslaunch cse571_project maze.launch`
