@@ -265,7 +265,8 @@ class RandomWalker:
             print("**Number of dirty cells remaining: " + str(self.count_of_dirty_cells))
             bot_current_location = next_state
             bot_current_orientation = next_orientation
-        print("**Total steps taken to clean the grid: " + str(total_steps_of_cleaning_entire_grid))
+
+            raw_input("\nPress Enter to continue execution...")
 
 
 if __name__ == "__main__":
