@@ -15,6 +15,7 @@ class RobotActionsServer:
 
     def __init__(self, object_dict, root_path, random_seed=10):
         self.object_dict = object_dict
+        self.grid_size = object_dict['grid_size']
         self.failure = -1
         self.success = 1
         self.status = String(data='Idle')
@@ -83,7 +84,7 @@ class RobotActionsServer:
         cnt = 0
         for key in state.keys():
             if key.startswith('dirt'):
-                if state[key]['cleaned']:
+                if 'cleaned' in state[key]:
                     cnt += 1
 
         if cnt == len(self.object_dict["dirts"].keys()):
@@ -221,6 +222,9 @@ class RobotActionsServer:
         else:
             x2 = x1
             y2 = y1 - 1
+
+        if x2<0 or y2<0 or x2>self.grid_size or y2>self.grid_size:
+            return self.success, current_state
 
         action_str = "MoveF"
 
